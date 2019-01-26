@@ -1,0 +1,683 @@
+.forSmallScreen {
+  display: none;
+}
+
+.icons {
+  background-color: white;
+  padding: 5px;
+} 
+
+.background {
+  background: url('/assets/img/profile/background.jpg') no-repeat fixed center center; 
+  background-size: inherit;
+  min-height: 100vh;
+}
+
+/*FULL VIEW*/
+.addCity {
+    color: #fff;
+    background-color: #373738;
+    padding: 5px 17px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: none;
+    margin: 10px 0;
+    letter-spacing: 0.2px;
+}
+
+.addCity:hover{
+    background-color: #50b5d6
+}
+
+.saveBtn{
+    color: #fff;
+    background-color: #82bf91;
+    padding: 5px 17px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: none;
+    margin-top: 15px;
+    letter-spacing: 0.2px;
+}
+
+.saveBtn:hover{
+    background-color: #589b69
+}
+
+.cancelBtn{
+    color: #fff;
+    background-color: #d4d4d4;
+    padding: 5px 17px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: none;
+    margin-top: 15px;
+    margin-right: 15px;
+    letter-spacing: 0.2px;
+
+}
+.cancelBtn:hover{
+    background-color: #50b5d6
+}
+
+.deletBtn {
+    color: #fff;
+    background-color: #f48383;
+    padding: 5px 17px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: none; 
+    margin-top: 15px;
+    letter-spacing: 0.2px;
+}
+
+.deletBtn:hover{
+    background-color: #ce2c2c
+}
+
+.rigth-oriented {
+    text-align: right;
+}
+
+.form-control{
+  height: 36px !important;
+  margin: 5px 0;
+}
+
+.close span {
+    padding-right: 15px;
+    vertical-align: middle;  
+}
+
+.modal-body {
+    padding: 20px !important;
+     background-color: white;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.modal-content {    background-color: unset !important}
+
+.addNote {
+  width: 100%;
+  background-color: rgb(214, 214, 215); 
+  height: 30px; 
+  border-radius: 0 0 10px 10px; 
+}
+.addNote a {
+  display: inline-block;
+  text-decoration: underline;
+  font-weight: bold;
+  margin: 7px;
+  font-size: 10px;
+  color: black; 
+  text-align: left;
+}
+
+.transportInput {
+  margin: 0 !important;
+    padding: 20px 0 !important;
+    background-color: white !important;
+}
+
+
+
+.checkbox {
+  margin-top: 25px;
+  margin-bottom: 0px; 
+  display: inline-block;
+  width: 100%;
+}
+
+/*INPUT TRANSPORT*/
+.radioInput {
+  margin-bottom: 12px;
+}
+
+.radioInput input{
+  width: 100%;
+  margin-top: 10px;
+}
+
+.transportLabels {
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    align-items: center;
+    border-radius: 100px;
+    margin: 0 8px;  
+}
+
+.gray {
+    background-color: grey;
+
+}
+/*PLANE LABEL*/
+
+.plane {
+  background-color: rgba(80, 181, 214, 0.5);
+}
+
+.planeActive {
+  background-color: rgb(80, 181, 214)
+}
+
+.planeImg {
+  margin-top: 13px;
+  margin-right: 2px;
+  width: 25px;
+}
+
+
+
+/*TRAIN LABEL*/
+
+.train {
+  background-color: rgba(130,191,145, 0.5);
+}
+
+.trainActive {
+  background-color: rgb(130,191,145);
+}
+
+.trainImg {
+  margin-top: 12px;
+  margin-left: 1px;
+  width: 27px;
+}
+
+
+
+/*BUS LABEL*/
+
+.bus {
+  background-color: rgba(244,131,131, 0.5);
+}
+
+.busActive {
+  background-color: #f48383
+}
+
+.busImg {
+  margin-top: 13px;
+  margin-left: 1px;
+  width: 25px;
+}
+
+
+/*SHIP LABEL*/
+
+.ship {
+  background-color: rgba(49,78,131, 0.5);
+}
+
+.shipActive {
+  background-color: #314e83
+}
+
+.shipImg {
+  margin-top: 10px;
+  width: 29px;
+}
+
+.shipLab {
+  color: #314e83 !important;
+}
+
+
+/*CAR LABEL*/
+
+.car {
+  background-color: rgba(212, 200, 12, 0.5);  
+}
+
+.carActive {
+  background-color: rgb(223, 218, 113)
+}
+
+.carImg {
+  margin-top: 9px;
+  width: 33px;
+}
+
+
+
+label {
+  font-size: 14px !important;
+  padding: 0 !important;
+  letter-spacing: 0.1px !important;
+  display: block !important;
+  text-align: left !important;
+  margin-bottom: 5px !important;
+  font-weight: 700 !important;  
+  color: #282828;
+}
+
+
+.trChangeBlock hr{
+  margin: 2px !important;  
+}
+
+.trChangeBlock {
+  margin-top: 20px;
+  padding: 10px 0; 
+  margin-bottom: 10px;
+}
+
+.trChangeBlock label{
+  color: rgb(40,40,40) !important;
+  padding: 10px 0 0 0 !important;
+  font-size: 14px !important;   
+}
+
+
+.trChangeBlock p{
+    margin: 10px 0 0px;
+    font-weight: 700;
+    color: rgb(40,40,40);
+    font-size: 14px;
+}
+
+.bottom input {
+  margin: 0;
+}
+
+
+.saveBlock {
+  text-align: right;
+}
+
+.transportSaveBtn {
+  margin-top: 30px !important;
+}
+
+
+
+
+
+
+/*Accommodation*/
+
+.accommImg {
+  width: 36px;
+  margin: 15px;
+}
+
+.pac-container {
+  z-index: 999999;
+}
+
+
+
+a, button {
+  cursor: pointer;
+}
+.custom-autocomplete__input[_ngcontent-c5]   input[_ngcontent-c5]{
+    display: block;
+    width: 100%;
+    height: 34px !important;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+/*Date picker*/
+.check {
+  width: 100%;
+  margin: 0;
+  display: inline-block;
+}
+.mydrp .weekdaytitle {
+    background-color: #fff !important;
+    color: black !important;
+    border-bottom: solid;
+    border-width: 1px;
+}
+
+.daycell {
+  height: 36px !important;
+  color: black !important;
+}
+.currmonth {
+    background-color: white !important;
+}
+
+.mydrp .nextmonth, .mydrp .prevmonth {
+    color: #d8d6d6 !important;
+}
+
+.range{
+  background-color: rgba(80, 181, 214,0.5) !important;
+  border-radius: 999px;
+}
+
+.range .currmonth{
+  background-color: rgba(80, 181, 214,0) !important;
+}
+
+.markcurrday {
+    text-decoration: none !important; 
+    border: solid;
+    border-radius: 9999px;
+    padding: 5px !important;
+    border-color: #cccccc;
+    border-width: 1px;
+}
+
+.mydrp .daycell:hover{
+    background-color: #DDD !important;
+    border: none;
+    border-width: 1px;
+    border-radius: 9999px !important;
+    outline: none !important;    
+}
+
+.mydrp .daycell:hover .currmonth {
+    background-color: #DDD !important;
+}
+
+.daycell:active {
+    background-color: #DDD !important;
+    border: solid;
+    border-width: 1px;
+    border-radius: 9999px !important;
+    outline: none;
+}
+
+.mydrp .disabled {
+    color: #bdbbbb !important;
+    background: #FBEFEF !important;
+    cursor: not-allowed !important;
+}
+.mydp .disabled {
+    color: #bdbbbb !important;
+    background: #FBEFEF !important;
+    cursor: not-allowed !important;
+}
+
+.disabled  .currmonth{
+    color: #bdbbbb !important;
+    background: #FBEFEF !important;;
+    cursor: not-allowed !important;
+}
+/*-------------------------------------------------------------
+lOGIN PAGE
+-------------------------------------------------------------*/
+.lockImg {
+  width: 10px;
+  margin-left: 3px;
+}
+
+.envelopeImg {
+  width: 13px;
+}
+
+.userImg {
+ width: 10px;
+}
+
+.userLogin {
+  border-style: solid;
+  border-color: #cccccc;
+  border-width: 1px;
+  color: #282828;
+  background-color: #f8f8f8;
+  padding: 10px 30px;
+}
+
+.userLogin input {
+  border-style: none;
+  display: inline-block;
+  width: 280px;
+  margin-top: 0;
+  padding-left: 15px;
+}
+
+input:-webkit-autofill {
+   background-color: white !important;
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+
+
+
+.userLogin button{
+  background-size: 100% 100%;
+  margin-bottom: 0;
+  padding: 0.7em;
+  border-width: inherit;
+  width: 100%;
+  font-size: 15px;
+  cursor:pointer;
+  border-radius: 10px;
+  margin-top: 13px;
+  margin-bottom: 8px;
+  background-color: #50b5d6;
+  color: white;
+}
+
+.userLogin hr {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.userLogin button:hover {
+  background-color: #282828;
+}
+
+.loginBtnBlock input {
+  width: 20px;
+  display: inline-block;
+  vertical-align: top;
+}
+.loginBtnBlock p {
+  display: inline-block;
+  margin: 0;
+  font-size: 12px;
+  color: grey;
+  vertical-align: top;
+}
+
+/*-------------------------------------------------------------
+NAVIGATION BAR
+-------------------------------------------------------------*/
+
+
+.navbar {
+  margin-bottom: 0;
+} 
+
+
+
+
+/*-------------------------------------------------------------
+ADD ELEMENTS
+-------------------------------------------------------------*/
+
+
+/*container settings*/
+.editElement{
+  width: 50%;
+  padding: 20px;
+  position: absolute;
+  bottom: 15%;
+  top:18%;
+  left: 25%;
+  right:25%;
+  background-color: white;
+  border-style: solid;
+  border-color: black;
+  z-index: 1;
+}
+
+/*headder settings*/
+
+.header, .modal-header {
+  background-color: #282828;
+  color: white;
+  padding: 0 !important;
+}
+.header h5, .modal-title{
+  margin: 0;
+  background-image: url('assets/img/reusable/plashkaside.png');
+  width: fit-content;
+  padding: 7px 35px 7px 20px;
+  background-size: unset;
+  background-position: right;
+  display: inline-block;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  font-family: helvetica; 
+  background-repeat: no-repeat; 
+}
+
+.header a{
+  font-size: 20px;
+  color: white;
+  padding-right: 20px;
+}
+
+.header a:focus, .header a:hover {
+    text-decoration: none;
+}
+
+.closing-tag {
+  height: 25px;
+  float: right;
+  margin: 3px;
+}
+
+
+
+
+/*paid or booked section*/
+.checkbox input{
+  width: 15px;
+  height: 15px;
+}
+
+.checkbox label{
+  font-size: 13px;
+  padding: 10px 3px 0 0 !important;
+  margin: 0;
+  color: black;
+}
+
+/*add or edit btn*/
+.add-btn {
+  width: 100%;
+  background-color: black;
+  color: white;
+  margin-top: 20px;
+}
+
+.output {
+  list-style-type: none;
+  -webkit-padding-start: 0;
+  list-style-type: none;
+  position: absolute;
+  background-color: white;
+  border-style: solid;
+  border-width: 1px;
+  width: 570px;
+  z-index: 9999;
+}
+
+.output li {
+  position: relative;
+  border-bottom: solid;
+  border-color: #eaeaea;
+  border-width: 1px;
+  padding-left: 10px;
+}
+.output button {
+  margin: 5px !important;
+}
+/*-------------------------------------------------------------
+TRIP ELEMENTS
+-------------------------------------------------------------*/
+
+
+
+
+
+/*-------------------------------------------------------------
+ADD NEW TRIP
+-------------------------------------------------------------*/
+.modal-dialog {
+  margin-top: 15vh;
+}
+
+.close {
+  color: white;
+  opacity: .9;
+  padding: 5px;
+  font-size: 34px;
+  font-weight: lighter;
+  text-shadow: none;
+}
+
+.dateForm {
+  width: 62% !important;
+  display:inline-block;
+}
+
+.timeForm{
+  width: 120px !important;
+  display:inline-block;
+  margin-bottom: 10px;
+  margin-top: 10px;  
+}
+
+
+
+bs-daterangepicker-container, bs-datepicker-container {
+  z-index: 9999999;
+}
+
+
+.alert {
+    padding: 5px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    background-color: #ffdddd;
+}
+
+@media only screen and (max-width : 992px) {
+.forBigScreen{
+  display: none !important;
+}
+
+
+.forSmallScreen {
+  display: inline-block;
+}
+  .background:before {
+    content: "";
+    display: block;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -10;
+    background: url('/assets/img/profile/backgroundlong.jpg') no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+  .userLogin input {
+      width: 90%;
+  }
+  .loginBtnBlock input {
+    width: 20px;
+    margin-top: 2px;
+  }
+}

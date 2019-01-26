@@ -1,0 +1,62 @@
+<div class="inline">
+  <div class="text-center" *ngIf='0 < accommodations.length'>
+    <h4>{{cityName}}</h4>
+    <img src="assets/img/reusable/edit.png" class="imgBtn"
+       (click)='modalSupport.editCity(cityId, tripId)' 
+       (click)='manipulate.editCity()'>  
+    <img src="assets/img/reusable/delete.png" class="imgBtn deleteBtn" 
+      (click)="showModal()">      
+  </div>  
+	<p *ngIf='0 < accommodations.length' class="text-center">{{beginJsDate | date:'dd.MM.yyyy'}}-{{endJsDate | date:'dd.MM.yyyy'}}</p>
+  <div *ngIf='accommodations.length<1' class="text-center addAccommodation"> 
+      <div class="addAccBody">       
+        <img class="accomImg" src="assets/img/reusable/accommodation.png">
+        <h4><u>{{cityName}}</u></h4>
+        <img src="assets/img/reusable/edit.png" class="imgBtn"
+        (click)='modalSupport.editCity(cityId, tripId)' 
+        (click)='manipulate.editCity()'>  
+        <img src="assets/img/reusable/delete.png" class="imgBtn deleteBtn" 
+        (click)="showModal()">  
+        <p class="text-center">{{beginJsDate | date:'dd.MM.yyyy'}}-{{endJsDate | date:'dd.MM.yyyy'}}</p><a 
+        (click)='modalSupport.addAccommodation(cityId, tripId)' 
+        (click)='manipulate.addAccommodation()'>
+            ADD ACCOMMODATION
+        </a>
+      </div>        
+        <div class="addNote">
+        <a class="pull-left" (click)='modalSupport.showNotes(cityId, "CITY")'
+          (click)='manipulate.showNotes()'>YOUR NOTES</a>        
+      </div>      
+    </div>
+
+  <div class="accommodComponent"> 
+    <div *ngIf='0<accommodations.length'>
+      <div *ngFor='let accommodation of accommodations '>
+        <accommodation [accommodationId]='accommodation' [tripId]='tripId' [cityId]='cityId' [tripDetailId]='tripDetailId'></accommodation>
+      </div>   
+    <div class="addNote">
+      <a class="pull-left" (click)='modalSupport.showNotes(tripId, cityId)'
+        (click)='manipulate.showNotes()'>YOUR NOTES</a>
+      <a class="pull-right" (click)='modalSupport.addAccommodation(cityId, tripId)' 
+          (click)='manipulate.addAccommodation()'>ADD ACCOMMODATION</a> 
+    </div>
+  </div>                   
+  </div>     
+</div>
+<!-- Delete modal view -->
+<div class="modal fade" bsModal #modal="bs-modal" role="dialog">  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title pull-left">DELETE</h5>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modal.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h5>Do you want to delete city {{cityName}} from your trip?</h5>
+        <button (click)="delete()" (click)="modal.hide()">Delete</button>
+        <button (click)="modal.hide()">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>

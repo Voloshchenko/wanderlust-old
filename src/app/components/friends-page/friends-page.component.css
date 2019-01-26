@@ -1,0 +1,44 @@
+.tabs {
+	display: inline-block;
+	padding: 5px;
+	margin-right: 10px; 
+	color: white;
+	margin-top: 30px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    width: 120px;	
+}
+
+.friends {
+  background-color: #50b5d6;
+}
+
+.requests {
+  background-color: #864aa9;	
+}
+
+.all {
+  background-color: #c1d4c4;	
+}
+
+.friendsBlock {
+  background-color: white;
+  padding: 20px;
+  box-shadow:0px 1px 13px 0px rgba(66, 66, 66, 0.28);  
+}
+
+.friendsBlock div{
+  padding: 10px;
+  border-bottom: solid;
+}
+
+img {
+  width: 100%;
+}
+
+@media only screen and (max-width : 992px) { 
+
+img{
+  margin-top: 40px;
+  }
+}

@@ -1,0 +1,41 @@
+<div class="modal-header">
+  	<h5 class="modal-title pull-left">TRIP SETTINGS</h5>  
+    <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">  	
+      <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+  <form [formGroup]="newTripForm" (ngSubmit)="saveNewTrip()" novalidate>
+	<div class="row">
+	  <div class="col-md-6">
+		<label>NAME OF YOUR TRIP*</label>
+	    <input [(ngModel)]="tripName" class="form-control" type="text" formControlName="tripName">
+        <div class="alert" *ngIf="!newTripForm.controls['tripName'].valid && newTripForm.controls['tripName'].touched">Edit trip name</div>
+	  </div>
+	  <div class="col-md-6">
+	    <label>TRIP DATES*</label>
+	    <my-date-range-picker name="mydaterange"
+	      [options]="myDateRangePickerOptions"  [(ngModel)]="range" 
+	         formControlName="range" required></my-date-range-picker>
+	    <div  class="alert alert-danger" role="alert" *ngIf="!newTripForm.controls['range'].valid && newTripForm.controls['range'].touched" >
+	      Edit trip dates
+	    </div>         
+	  </div> 
+      <div class="col-md-5">
+        <label>TRIP CURRENCY </label>    
+        <input [(ngModel)]="currency" class="form-control" formControlName="currency" list="currency">
+        <datalist id="currency">
+          <option value="RUB">
+          <option value="USD">
+          <option value="EURO">
+          <option value="AUD"> 
+          <option value="GBP">  
+        </datalist> 
+      </div> 	     
+	</div>    
+    <button type="submit" class="saveBtn pull-right" [disabled]='!newTripForm.valid'>Save</button>    
+    <button class="cancelBtn pull-right" (click)="bsModalRef.hide()">Cancel</button>
+	<button (click)="delete()" class="pull-left deletBtn">Delete trip</button>      
+  </form>
+</div>
+

@@ -1,0 +1,172 @@
+.forBigScreen {
+	display: inline-block;
+}
+
+#top{
+	background-image: url('../../../assets/img/profile/background.jpg');
+	background-size: cover;
+	background-position: center center;
+	height: 50vh;
+	box-shadow: inset -3px -5px 20px 1px #b1b1b1;
+}
+
+.addTripHead {
+	padding-top: 40px;
+}
+
+.addTripHead h1 {
+	font-weight: bold;
+	font-size: 44px;
+}
+
+.addTripHead h3 {
+	font-weight: bold;
+	color: rgb(80, 181, 214);
+	margin: 0;
+	font-size: 34px;
+}
+
+.addTripHead h4 {
+	margin: 2px;
+	font-size: 22px;
+}
+
+.addTripHead p {
+	margin: 0;
+    font-size: 15px;
+	padding-left: 7px;
+}
+span {
+	font-weight: bold;
+}
+.addTripHead .col-md-9, .col-md-3 {
+	padding: 0;
+	padding-top: 70px;
+}
+
+.btnAddTrip {
+	width: 75px;
+	cursor: pointer;
+	float: right;
+	padding-right: 10px;
+}
+
+.text-right {
+	padding-top: 20px;
+}
+
+h2 {
+	font-weight: bold;
+	margin-bottom: 0;
+	margin-top: 55px;	
+}
+
+ul {
+	list-style-image: url('../../../assets/img/profile/dot.png');
+	padding-left: 20px;
+	padding-top: 5px;
+}
+
+.point {
+	display: inline-block;
+	padding: 20px;
+	margin-top: 80px;
+
+}
+
+.point img {
+	width: 50px;
+}
+
+#phone{
+  top: -100px;
+  position: absolute;
+  width: 200px;
+  right: 0;
+}    
+
+.move {
+	padding-left: 4px;
+}
+
+.moveBlock{
+	padding-left: 83px;
+}
+
+.col-md-5 {
+	padding-left: 83px;
+}
+
+h1{
+	margin-top: 30px;
+}
+
+
+
+@media screen and (max-width: 767px) {
+	.addTripHead {
+	    padding-top: 10px;
+	}
+	.col-md-5 {
+		padding-left: 15px;
+	}
+	.btnAddTrip {
+	    float: none;
+	    padding: 0;
+	}
+
+	.addTripHead .col-md-9, .col-md-3 {
+		padding-top: 10px;
+		margin-top: 0;
+		text-align: center;
+	}
+
+	.addTripHead h1 {
+		font-size: 19px;
+		margin-top: 30px;
+		text-align: center;
+	}
+
+	.addTripHead h3 {
+		font-size: 24px;
+	}
+
+	.addTripHead h4 {
+ 	    font-size: 25px;
+	    padding-bottom: 5px;
+	    border-bottom: solid;
+	}
+
+	.addTripHead p {
+	    font-size: 13px;
+	    padding-left: 0;
+	}
+
+	h2 {
+		margin-top: 20px;
+		font-size: 20px;	
+	}
+
+	.moveBlock {
+	    padding-left: 15px;
+	}
+
+	.point {
+	    margin-top: 0;
+    }
+
+	#phone {
+	    display: none;
+	}
+	#top{
+	height: 100vh;
+	padding-top: 80px;
+	text-align: center;
+    }
+
+    .bodyMain{
+	    text-align: left;
+	    padding: 0 21px;
+	}
+
+}

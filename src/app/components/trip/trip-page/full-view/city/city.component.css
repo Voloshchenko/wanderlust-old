@@ -1,0 +1,103 @@
+.accommodComponent {
+   border-style: hidden;
+   border-width: 1px;
+   border-radius: 10px;
+   box-shadow:0px 1px 13px 0px rgba(66, 66, 66, 0.28);
+ }
+
+.addBlock{
+	display: inline-block;
+}
+
+.addBlock p {
+	font-size: 10px;
+	display: inline-block;
+}
+
+.inline{
+	display: inline-block;
+	width: 240px;
+    vertical-align: middle;	
+}
+
+img {
+	width: 15px;
+	cursor: pointer;
+}
+
+.addAccommodation {
+   border-style: hidden;
+   border-width: 1px;
+   border-radius: 10px;
+   box-shadow:0px 1px 13px 0px rgba(66, 66, 66, 0.28);
+   display: inline-block;
+   width: 240px;
+   margin-top: 62px;
+}
+
+.accomImg {
+    width: 40px;
+    margin: 20px auto 0;
+    display: block;
+}
+
+.addAccommodation h5 {
+	font-weight: bold;
+}
+
+.add {
+	cursor: pointer;
+}
+
+h4 {
+	display: inline-block;
+	margin-bottom: 3px;
+}
+
+.addAccommodation h4 {
+	margin-bottom: 10px;
+}
+
+ u {
+    text-decoration: none;
+    padding-bottom: 4px;
+    border-bottom: 3px solid #282828;
+  }​
+
+.addAccBody{
+   height: 250px;
+}
+
+.addAccBody p{
+	margin: 5px 0 10px !important;
+}
+
+.addAccBody a{
+  margin-bottom: 20px;
+}
+
+a {
+    color: #333;
+    text-decoration: underline;
+    font-size: 10px;
+    display: block;
+}
+
+.imgBtn {
+	position: absolute;
+    margin-left: 10px;	
+}
+.deleteBtn {
+	margin-left: 32px;
+}
+
+
+@media only screen and (max-width : 992px) { 
+  .inline {
+    display: block;
+    margin: auto;
+  }
+  .addAccommodation {
+	   margin-top: 0;
+	}
+}

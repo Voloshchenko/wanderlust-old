@@ -1,0 +1,30 @@
+<div class="background">
+<navbar></navbar>
+<!-- <div class="container">
+	<div (click)="friendsListActive()" class="tabs friends">Friends</div>
+	<div (click)="requestActive()" class="tabs requests">Friends requests</div>
+	<div (click)="serachActive()" class="tabs all">All people</div>
+
+	<div *ngIf="friendslist" class="friendsBlock">
+      <div *ngFor="let request of this.friendsList.friends">
+        <p routerLink= "/profile/{{request.$key}}">{{request.name}}</p>      
+      </div>
+	</div>
+	<div *ngIf="request" class="friendsBlock">
+	  <div *ngIf="this.friendsList.requestReceived.length == 0">
+	  	<p>You don't have any requests</p>
+	  </div>
+      <div *ngFor="let request of this.friendsList.requestReceived">
+        <p routerLink= "/profile/{{request.$key}}">{{request.name}}</p>      
+      </div>
+	</div>
+	<div *ngIf="serach" class="friendsBlock">
+        <input type="text" (keydown)="search($event)" placeholder="find friends">
+        <p class="text-center">{{friendsAmount}} friends</p>
+  	  	<div *ngFor='let user of users'>
+    	  	<a routerLink= "/profile/{{user.$key}}"><p>{{user.name}}</p></a> <button (click)="addFriend()">Add Friend</button>
+    	</div>
+	</div>		
+</div> -->
+<img src="assets/img/reusable/coming.png">
+</div>

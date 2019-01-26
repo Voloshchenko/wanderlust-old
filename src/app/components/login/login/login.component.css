@@ -1,0 +1,62 @@
+button {
+	color: white;
+	border-radius: 5px;
+	text-align: left;
+	padding: 0;	
+	width: 230px;
+	font-size: 16px;
+	border-style: none;
+	height: 40px;
+	margin: 5px 0;
+}
+
+img{
+    width: 40px;
+    vertical-align: middle;
+	border-right: 1px solid #cccccc;
+	margin-right: 5px;	
+	padding: 10px 10px;
+}
+
+#register{
+	background-color: #282828;
+}
+
+#facebook{
+	background-color: #3b5998;
+}
+
+#google{
+	background-color:#dd4b39; 
+}
+
+#twitter{
+	background-color: #39abdc;
+}
+
+#login {
+	background-color: #50b5d6;
+}
+
+
+
+@media only screen and (max-width : 992px) {  
+  button {
+  	width: 100%;
+  }
+
+	.forSmallScreen button {
+		width: fit-content;
+		border-radius: 100px;
+		margin: 10px;
+		height: auto;
+	}
+
+  .forSmallScreen img {
+     border: none;
+     margin-right: 0;
+     width: 55px
+  }
+
+
+}

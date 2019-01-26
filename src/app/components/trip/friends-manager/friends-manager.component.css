@@ -1,0 +1,37 @@
+.modal-body {
+	padding: 15px;
+    position: relative;
+}
+
+.saveBtn {
+    bottom: 15px;
+    right: 15px;
+    position: absolute;
+}
+
+.cancelBtn {
+    bottom: 15px;
+    position: absolute;
+    right: 80px;
+}
+
+.row {
+	margin: 0;
+}
+
+
+img {
+	width: 20px;
+}
+
+a{
+	color: #282828
+}
+
+hr {
+    border-top: 1px solid #fff;
+}
+
+.addedUsers {
+	padding: 5px 0;
+}

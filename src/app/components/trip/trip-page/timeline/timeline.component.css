@@ -1,0 +1,71 @@
+.inline {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.city {
+    padding: 5px;
+    background-color: #282828;
+    color: white;
+    border-radius: 10px;
+    margin: 5px;
+}
+
+.city p {
+	margin: 3px 8px;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+}
+
+.transportLabels {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    align-items: center;
+    border-radius: 100px;
+    margin: 0 5px;  
+}
+
+/*PLANE LABEL*/
+
+.planeImg {
+    margin-top: 8px;
+    width: 14px;
+    margin-left: 2.5px;
+}
+
+
+
+/*TRAIN LABEL*/
+
+.trainImg {
+  margin-top: 5px;
+  margin-left: 1px;
+  width: 20px;
+}
+
+
+
+/*BUS LABEL*/
+
+.busImg {
+    margin-top: 7px;
+    width: 14px;
+}
+
+
+/*SHIP LABEL*/
+
+.shipImg {
+   margin-top: 6px;
+    width: 15px;
+}
+
+
+
+/*CAR LABEL*/
+
+.carImg {
+    margin-top: 5px;
+    width: 19px;
+}

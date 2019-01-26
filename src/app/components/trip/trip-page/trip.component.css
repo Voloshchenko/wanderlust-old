@@ -1,0 +1,194 @@
+.topTripPage {
+  margin-bottom:  20px;
+}
+
+.tripPage {
+  margin-top: 40px;
+}
+
+.tripPage h1 {
+  margin: 0;
+}
+
+.tripInfo img {
+  width: 20px;
+}
+
+.edit {
+    width: 30px;
+}
+.tripInfo input {
+    font-size: 30px;
+    font-weight: bold;
+    padding-bottom: 4px;
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    text-align: center;
+    width: 340px;
+}
+
+textarea:focus, input:focus {
+	outline: none;
+}
+
+.tripInfo hr {
+  border-color: black;
+  margin: 8px;
+  border-width: 2.5px;
+}
+
+span {
+    font-weight: bold;
+}
+
+.separator {
+    width: 10px !important;
+    margin: 0 10px;
+}
+
+.sideBar {
+  position: fixed;
+  right: 0;
+  top: 35vh;
+}
+.notesImg{
+ background-color: #0884d2; 
+}
+
+.notesImg img{
+  width: 22px;
+  margin-top: 14px;
+  margin-left: 5px;
+}
+
+.settingImg {  
+ background-color: #282828;
+}
+
+.settingImg img{
+  width: 24px;
+  margin-top: 12px;
+}
+
+
+.friendsImg{
+ background-color: #864aa9;
+}
+
+.friendsImg img{
+  width: 25px;
+  margin-top: 14px;
+}
+
+.storyImg {
+ background-color: #50b5d6;;
+}
+
+.storyImg img{
+  width: 23px;
+  margin-top: 14px;
+  margin-right: 3px;
+}
+
+.showFullInfo {
+  color: rgb(117, 117, 117);
+  text-decoration: underline;
+  margin-top: 20px;
+}
+
+.transportLabels {
+  margin: 20px 20px; 
+  box-shadow:0px 1px 13px 0px rgba(66, 66, 66, 0.28);
+}
+
+ .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    right: 105%;
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
+}
+
+.notesImg:hover .tooltiptext, .settingImg:hover .tooltiptext, .friendsImg:hover .tooltiptext, .storyImg:hover .tooltiptext {
+    visibility: visible;
+}
+
+.chat {
+    position: fixed;
+    bottom: 0;
+    right: 80px;
+    margin: 0 10px;
+    width: 320px;
+}
+
+.forSmallScreen {
+  display: none;
+}
+
+.timelineBlock{
+  margin-top: 40px;
+}
+  .forBigScreen {
+    display: block;
+  }
+@media only screen and (max-width : 992px) { 
+  .forBigScreen {
+    display: none;
+  }
+  .forSmallScreen {
+    display: initial;
+  }
+
+  .tripInfo {
+    margin-top: 20px;
+  }
+  h5 {
+    font-size: 13px;
+  }
+  .transportLabels {
+    margin: 20px 10px;
+  }
+  
+  .transportLabels {
+    margin: 20px 8px; 
+    box-shadow:0px 1px 13px 0px rgba(66, 66, 66, 0.28);
+    width: 40px;
+    height: 40px;
+  }
+
+  .notesImg img{
+    width: 19px;
+    margin-top: 11px;
+  }
+  .settingImg img{
+    width: 19px;
+    margin-top: 11px;
+    margin-left: 0.5px;
+  }
+
+  .friendsImg img{
+    width: 21px;
+    margin-top: 11px;
+  }
+
+  .storyImg img{
+    width: 19px;
+    margin-top: 10px;
+    margin-right: 0;
+  }
+  .budget {
+      width: 80%;
+      margin: 5px auto 30px auto;
+  }
+  .chat {
+    bottom: 0;
+    right: 0;
+    margin: 0;
+  }
+}

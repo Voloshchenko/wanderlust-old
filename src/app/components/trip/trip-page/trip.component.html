@@ -1,0 +1,113 @@
+<div class = 'background'>
+  <navbar></navbar>
+  <div class="container tripPage">    
+    <div class="row topTripPage">
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 forBigScreen">  <div class="budget">
+          <div class="header">
+            <h5>BUDGET</h5>
+            <a *ngIf = '!budget' class="pull-right" (click)='toggleBudget()'>+</a>
+            <a *ngIf = 'budget' class="pull-right" (click)='toggleBudget()'>-</a>            
+          </div>         
+          <budget *ngIf = 'budget' [userId]='afAuth.currentUserId' [tripId] = 'tripId' ></budget>                  
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+        <div class="tripInfo text-center">      
+          <div>
+            <h1>{{(trip | async)?.tripName}}</h1>
+          </div>      
+          <hr>
+          <h5>
+            <span>BEGINS ON:</span> {{(trip | async)?.range.beginJsDate | date: 'dd.MM.yyyy'}}
+            <img class='separator' src="assets/img/reusable/pinkSquare.png">
+            <span>ENDS ON:</span> {{(trip | async)?.range.endJsDate | date: 'dd.MM.yyyy'}}
+          </h5>
+          <button class="addCity" (click)='modalSupport.addCity(tripId)' (click)='manipulate.addCity()'>Add new city</button> 
+        </div>
+      </div>
+<!--       <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 forBigScreen">       
+        <div class="budget">
+          <div class="header">
+            <h5>TO DO LIST</h5>
+            <a *ngIf = '!toDoList' class="pull-right" (click)='toggleToDoList()'>+</a>
+            <a *ngIf = 'toDoList' class="pull-right" (click)='toggleToDoList()'>-</a>            
+          </div>         
+          <to-do *ngIf = 'toDoList' [userId]='afAuth.currentUserId' [tripId] = 'tripId' ></to-do>                  
+        </div>
+      </div>  -->     
+    </div>
+    <div class="text-center forBigScreen timelineBlock">    
+      <h4>TIMELINE</h4>
+      <timeline></timeline>    
+    </div> 
+    
+    <div class="text-center showFullInfo">
+    	<a class="showFullInfo" (click)='toggleFullInfo()' *ngIf = '!showFullInfo'> Show detailed information</a>
+      <a class="showFullInfo" (click)='toggleFullInfo()' *ngIf = 'showFullInfo'> Hide detailed information</a> 	
+    </div>
+  	<full-view *ngIf = 'showFullInfo'  [tripId]='tripId'></full-view>
+  </div>
+  <div class="sideBar">
+    <div class="transportLabels settingImg" *ngIf="this.afAuth.currentUserId == 'iw268kanJaRBMV36tYz2gFOjSnq2' || this.afAuth.currentUserId == 'zGrBh9Vb50hYOe3QycVS9GV4rQ83'"
+        (click)='modalSupport.newPost(tripId, this.afAuth.currentUserId)'
+        (click)='manipulate.newPost()'>
+      <span class="tooltiptext">NEW POST</span>       
+      <img src="assets/img/trip/settings.png">               
+    </div>    
+    <div class="transportLabels settingImg" 
+       (click)='modalSupport.tripSettings(tripId)'
+        (click)='manipulate.tripSettings()'>
+      <span class="tooltiptext">TRIP SETTINGS</span>       
+      <img src="assets/img/trip/settings.png">               
+    </div>       
+    <div class="transportLabels friendsImg" 
+        (click)='modalSupport.tripFriends(tripId)'
+        (click)='manipulate.tripFriends()'>
+      <span class="tooltiptext">TRIP FRIENDS</span>       
+      <img src="assets/img/trip/friends.png">           
+    </div>
+    <div class="transportLabels storyImg" routerLink= "/story/{{tripId}}">
+      <span class="tooltiptext">MAKE A STORY</span>       
+      <img src="assets/img/trip/share.png">           
+    </div>
+    <div class="transportLabels notesImg" (click)='modalSupport.showNotes(tripId, undefined)'
+        (click)='manipulate.showNotes()'>
+        <span class="tooltiptext">YOUR NOTES</span>       
+        <img src="assets/img/trip/note.png">               
+    </div>    
+  </div>
+  <div class="row forSmallScreen">
+    <div class="col-xs-12">
+      <div class="budget">
+        <div class="header">
+          <h5>BUDGET</h5>
+          <a *ngIf = '!budget' class="pull-right" (click)='toggleBudget()'>+</a>
+          <a *ngIf = 'budget' class="pull-right" (click)='toggleBudget()'>-</a>            
+        </div>         
+        <budget *ngIf = 'budget' [userId]='afAuth.currentUserId' [tripId] = 'tripId' ></budget>                  
+      </div>
+    </div>
+  </div>
+  <app-dialog *ngIf ="1<members" class ="chat" [tripId]='tripId'></app-dialog>
+  <div class="modal fade" bsModal #modal="bs-modal" role="dialog">    
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title pull-left">DELETE TRIP</h5>
+          <button type="button" class="close pull-right" aria-label="Close" (click)="modal.hide()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <h5>Do you want to delete your trip "{{tripName}}"</h5>
+          <button 
+            (click)="delete()" 
+            (click)="modal.hide()">
+              Delete
+          </button>
+          <button (click)="modal.hide()">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

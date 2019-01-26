@@ -1,0 +1,19 @@
+<div class="userLogin">
+  <span class="error" *ngIf="error">{{ afAuth.error }}</span>
+  <form (submit)="signInWithEmail($event)">
+    <div class="icons">
+      <img class="envelopeImg" src="assets/img/login/envelope.png">
+      <input type="text" placeholder="Email address.."  class="txt" required>      
+    </div> 
+    <hr>    
+    <div class="icons">
+      <img class="lockImg" src="assets/img/login/lock.png">
+      <input type="password" placeholder="Password" class="txt" required>      
+    </div> 
+    <div class="loginBtnBlock">
+      <button type="submit">LOGIN</button> 
+      <button  class="forSmallScreen" type="button" (click)='manipulate.loginToggle()'>REGISTER NOW</button>
+      <input type="checkbox"> <p>Remember me</p>        
+    </div>            
+  </form>
+</div>

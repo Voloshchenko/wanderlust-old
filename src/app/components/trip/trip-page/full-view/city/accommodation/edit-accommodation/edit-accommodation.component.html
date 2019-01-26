@@ -1,0 +1,103 @@
+<div class="modal-header">
+  <h5 class="modal-title pull-left">EDIT ACCOMMODATION</h5>
+  <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">  	
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form (ngSubmit)="saveAccommodation()" [formGroup]="editAccommodationForm" novalidate>
+    <div class="radioInput row">
+	  <div class="col-md-2"></div>
+	  <div class="col-xs-4 col-sm-4 col-md-2">
+		<img class="accommImg" src="assets/img/accommodation/hotel.svg">
+		<input type="radio" value="hotel" [(ngModel)] = 'typeOfAccommodation' formControlName="typeOfAccommodation">
+	  </div>
+	  <div class="col-md-1"></div>
+	  <div class="col-xs-4 col-sm-4 col-md-2">
+		<img class="accommImg" src="assets/img/accommodation/airbnb.svg">
+		<input type="radio" value="airbnb" [(ngModel)] = 'typeOfAccommodation' formControlName="typeOfAccommodation">
+	  </div>
+	  <div class="col-md-1"></div>
+	  <div class="col-xs-4 col-sm-4 col-md-2">
+		<img class="accommImg" src="assets/img/accommodation/couchsurfing.svg">
+		<input type="radio" value="couchsurfing" [(ngModel)] = 'typeOfAccommodation' formControlName="typeOfAccommodation">
+	  </div>
+	  <div class="col-md-2"></div>		
+	</div>
+	<div class="row" >
+	  <div class="col-md-6" *ngIf='typeOfAccommodation=="hotel"'>
+		<label class="label">HOTEL NAME</label>
+		<input placeholder="search for hotel" 
+              id="hotel" 
+              autocorrect="off" 
+              autocapitalize="off" 
+              spellcheck="off" type="text"
+              class="form-control"
+              [(ngModel)]="hotelName"
+              (focus)="initializeSearch()"
+              (blur)="searchHotel()"
+		      formControlName="hotelName">		
+	  </div>
+	  <div class="col-md-6" *ngIf='typeOfAccommodation!="hotel"'>
+		<label class="label">HOST NAME</label>
+		<input [(ngModel)]="hotelName" class="form-control" type="text" formControlName="hotelName" placeholder="your host name"> 	
+	  </div>
+	  <div class="col-md-6">
+		<label class="label">ADDRESS</label>
+		<input placeholder="search for address" 
+              id="address" 
+              autocorrect="off" 
+              autocapitalize="off" 
+              spellcheck="off" type="text"
+              class="form-control"
+              [(ngModel)]='hotelAddress'
+              (focus)="initializeSearchAddress()"
+              (blur)="searchAddress()"
+		      formControlName="hotelAddress">	
+	  </div>
+	</div>	  
+	<div class="row">
+	  <div class="col-md-6">
+		<label class="label">DATES OF YOUR STAY</label>
+		<my-date-range-picker name="mydaterange" 
+			[options]="myDateRangePickerOptions" 
+			[(ngModel)] = 'range'
+			[defaultMonth]="defaultMonth"
+		      formControlName="range"  required>
+		</my-date-range-picker>
+	  </div>
+	  <div class="col-md-3">	
+	    <label class="label">CHECK IN</label>
+		<input class="form-control check" type="time" 
+	         formControlName="checkIn" [(ngModel)]="checkIn">
+	  </div>
+	  <div class="col-md-3">	         
+	    <label class="label">CHECK OUT</label>
+	    <input class="form-control check" type="time" 
+	         formControlName="checkOut" [(ngModel)]="checkOut">
+	  </div>
+    </div>	
+	<div class="row">
+	  <div class="col-md-4">
+		<label class="label">COST</label>
+		<input class="form-control" type="number" [(ngModel)] = 'cost' formControlName="cost">
+	  </div>
+	  <div class="col-md-4">
+		<div class="checkbox">
+		  <div class="col-md-6">
+			<input class="form-control" type="checkbox" [(ngModel)] = 'booked' formControlName="booked">
+			<label>Booked</label>
+		  </div>
+		  <div class="col-md-6">
+			<input class="form-control" type="checkbox" [(ngModel)] = 'paid' formControlName="paid">
+			<label>Paid</label>
+		  </div>
+		</div>
+	  </div>
+      <div class="col-md-4">
+        <button type="submit" class="saveBtn transportSaveBtn pull-right">Save</button>
+        <button class="cancelBtn transportSaveBtn pull-right" (click)="bsModalRef.hide()">Cancel</button>
+      </div> 	  
+	</div>
+  </form>
+</div> 

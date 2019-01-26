@@ -1,0 +1,16 @@
+form{
+	margin: 20px;
+}
+
+p {
+	margin: 0;
+}
+
+.mydp { 
+	margin: 5px 0;
+}
+
+textarea {
+    width: 100%;
+    margin-bottom: 15px;
+}

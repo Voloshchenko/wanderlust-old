@@ -1,0 +1,37 @@
+<div class="forBigScreen">
+  <span class="error" *ngIf="error">{{error}}</span>
+  <button *ngIf='manipulate.login' (click)='manipulate.loginToggle()' id="register">
+	<img src='assets/img/login/logo.png'>
+	Register now
+  </button>
+  <button *ngIf='!manipulate.login' (click)='manipulate.loginToggle()' id="login">
+	<img src='assets/img/login/logo.png'>
+     Login now
+  </button>
+  <button (click)="signInWithFacebook()" id="facebook">
+	<img src='assets/img/login/facebook.svg'> 
+	Login with Facebook</button>
+  <button (click)="signInWithGoogle()" id="google">
+	<img src='assets/img/login/google.svg'>
+	Login with Google
+  </button>
+  <button (click)="signInWithTwitter()" id="twitter">
+	<img src='assets/img/login/twitter.svg'>
+	Login with Twitter
+  </button>
+</div>
+
+<div class="forSmallScreen">
+  <button (click)="signInWithFacebook()" id="facebook">
+  <img src='assets/img/login/facebook.svg'> 
+  </button>
+  <button (click)="signInWithGoogle()" id="google">
+  <img src='assets/img/login/google.svg'>
+  
+  </button>
+  <button (click)="signInWithTwitter()" id="twitter">
+  <img src='assets/img/login/twitter.svg'>
+  
+  </button>
+</div>
+	

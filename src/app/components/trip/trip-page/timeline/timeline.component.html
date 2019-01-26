@@ -1,0 +1,22 @@
+<div *ngFor="let tripDetail of tripFunction.tripDetails as tripDetails; index as i " class="inline">
+   <div class="transport" *ngIf='tripDetail.type=="transport"'>
+   	  <div class="transportLabels planeActive" *ngIf='tripDetail.typeOfTransport=="plane"'>
+          <img class = "planeImg" src="assets/img/transport/planeWhite.png">         
+      </div> 
+   	  <div class="transportLabels trainActive" *ngIf='tripDetail.typeOfTransport=="train"'>
+          <img class = "trainImg" src="assets/img/transport/train.png">         
+      </div>
+   	  <div class="transportLabels busActive" *ngIf='tripDetail.typeOfTransport=="bus"'>
+          <img class = "busImg" src="assets/img/transport/bus.png">         
+      </div>      
+   	  <div class="transportLabels shipActive" *ngIf='tripDetail.typeOfTransport=="ship"'>
+          <img class = "shipImg" src="assets/img/transport/boat.png">         
+      </div> 
+   	  <div class="transportLabels carActive" *ngIf='tripDetail.typeOfTransport=="car"'>
+          <img class = "carImg" src="assets/img/transport/carWhite.png">         
+      </div>      
+   </div>   
+   <div class="city" *ngIf='tripDetail.type=="city"'>
+   	 <p>{{tripDetail.cityName.toUpperCase()}}</p>	 
+   </div>
+</div>

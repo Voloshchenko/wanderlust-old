@@ -1,0 +1,45 @@
+<form (ngSubmit)="savePersonalInfo()" [formGroup]="personalInfoForm" novalidate>
+  <div class="row">         
+    <div class="col-md-6">
+      <p>NAME:</p>       
+      <input class="form-control" type="text" [(ngModel)] = 'name' formControlName="name">      
+      <p>BIRTHDAY:</p> 
+      <my-date-picker
+        [(ngModel)] = 'birthday'
+        [options]="myDatePickerOptions"
+        formControlName="birthday">
+      </my-date-picker>
+      <p>HOME CITY:</p>
+      <input class="form-control" type="text" [(ngModel)] = 'homeCity' formControlName="homeCity"> 	    
+      <p>LANGUAGES:</p>
+      <input class="form-control" type="text" [(ngModel)] = 'languages' formControlName="languages">
+      <p>WORK:</p>
+      <input class="form-control" type="text" [(ngModel)] = 'work' formControlName="work">
+      <p>STATUS:</p>
+      <input class="form-control" type="text" [(ngModel)] = 'status' formControlName="status">
+    </div>        
+    <div class="col-md-6">
+      <p>INSTAGRAM:</p>
+      <input class="form-control" type="text" [(ngModel)] = 'instagram' formControlName="instagram">
+      <p>FACEBOOK:</p>
+      <input class="form-control" type="text" [(ngModel)] = 'facebook' formControlName="facebook">
+      <p>TWITTER</p>
+      <input class="form-control" type="text" [(ngModel)] = 'twitter' formControlName="twitter">
+          
+      <p>E-MAIL:</p> 
+      <input class="form-control" type="email" [(ngModel)] = 'email' formControlName="email">     
+      <p>PHONE NUMBER:</p>
+      <input class="form-control" type="number" [(ngModel)] = 'phone' formControlName="phone">
+    </div>
+  </div> 
+  <div class="row">         
+    <div class="col-md-6">
+      <p>ABOUT YOU:</p>
+      <textarea [(ngModel)] = 'about' formControlName="about"></textarea>
+    </div> 
+    <div class="col-xs-12 col-sm-6 col-md-6">
+      <button type="submit" class="saveBtn pull-right transportSaveBtn">Save</button>
+      <button type="button" class="cancelBtn pull-right transportSaveBtn" (click)="manipulate.togglepersonalnfo()">Cancel</button> 
+    </div>                
+  </div>       
+</form>

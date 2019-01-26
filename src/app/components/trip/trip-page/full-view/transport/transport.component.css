@@ -1,0 +1,89 @@
+.transportComponent{
+	color: #282828;
+}
+
+.title {
+	display: inline-block;
+	background-color: white;
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+    padding: 7px;	
+}
+
+.title h5{
+	color: black;
+	font-weight: bold;
+	margin: 0;
+	padding-bottom: 5px;
+}
+
+
+.title p{
+	margin-bottom: 0;
+	font-weight: bold;
+	font-size: 10px;
+}
+.title hr {
+	border-color: rgb(80, 181, 214);
+	margin: 0;
+}
+
+.main {
+	padding: 10px;
+}
+
+.main h5 {
+	font-weight: bold;
+	font-size: 10px;
+    margin: 4px 0;	
+}
+
+.main h3 {
+	font-weight: bold;	
+    font-size: 18px;
+    margin: 2px 0;
+}
+
+.main h4 {
+	font-weight: bold;	
+    font-size: 12px;
+    margin: 2px 0;
+}
+
+.main p {
+    font-size: 9px;
+}
+
+.bottom{
+    width: 100%;
+	background-color: white; 
+	height: 30px;  
+}
+
+.bottom p {
+	display: inline-block;
+	font-weight: bold;
+    margin: 8px;
+    font-size: 9px;
+}
+.bottom img {
+  width: 15px;
+  margin: 8px;
+  cursor: pointer;
+}
+.transportComponent {
+   width: 240px;
+   border-style: hidden;
+   margin-top: 62px;
+   border-width: 1px;
+   border-radius: 10px;
+   background-color: white;
+   box-shadow:0px 1px 13px 0px rgba(66, 66, 66, 0.28);
+ }
+
+ @media only screen and (max-width : 992px) { 
+  .transportComponent {
+    display: block;
+    margin: auto;
+  }
+}

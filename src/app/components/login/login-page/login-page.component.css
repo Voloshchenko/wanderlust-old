@@ -1,0 +1,58 @@
+h1 {
+	font-weight: bold;
+	font-size: 60px;
+	margin: 50px 0 10px 20px;
+}
+
+h2{
+	font-size: 25px;
+	margin: 0 0 100px 30px;
+}
+
+#container-login-page{
+	width: 800px;
+	margin: auto;
+	background-color: #f8f8f8;
+	padding: 80px;
+	height: 100vh;
+    box-shadow:0px 1px 13px 0px rgba(66, 66, 66, 0.28);
+}
+
+
+ img {
+	width: 100%;
+	margin-top: 12vh;
+}
+
+.col-md-7 {
+	padding-left: 0;
+	margin-top: 5px;
+}
+
+@media only screen and (max-width : 992px) { 
+	h1 {
+		font-weight: bold;
+		font-size: 10vw;
+		margin: 30px 0 10px 20px;
+	}
+    .col-xs-12, .col-sm-12{
+    	text-align: center;
+    	margin-top: 10px;
+    }
+	h2{
+		font-size: 7vw;
+		margin: 0 0 30px 30px;
+	}	
+
+	#container-login-page{
+		width: 100vw;
+		padding: 20px;
+	}
+
+	img {
+		display: none;
+	}
+	.col-md-7 {
+		padding-left: 15px;
+	}
+}

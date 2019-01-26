@@ -1,0 +1,43 @@
+<div *ngIf="openDialog" class="modal-header">  
+  <h4 class="modal-title pull-left">TRIP CHAT</h4>
+  <button type="button" (click)="toggleChat()" class="close pull-right" aria-label="Close">    
+    <span aria-hidden="true">&times;</span>
+  </button> 
+</div>
+<div *ngIf="!openDialog" (click)="toggleChat()" class="modal-header">  
+  <h4 class="modal-title pull-left">TRIP CHAT</h4>
+</div>
+<div *ngIf="openDialog" class="chat-block">
+  <div class="chat-container"
+  #scrollMe [scrollTop]="scrollMe.scrollHeight" infiniteScroll
+	  [infiniteScrollDistance]="1"
+	  [infiniteScrollThrottle]="1000"
+	  (scrolledUp)="onScroll()"
+	  [scrollWindow]="false"
+	  [infiniteScrollUpDistance]="0.2"
+  >
+  	<div *ngIf="!finished">
+	 Loading more messages...
+	</div>
+	<div *ngIf="finished">
+	  No more messages
+	</div>	
+	<div *ngFor="let item of items | async">
+	  <div *ngIf = "item.userId == userId" class="currentUser">
+		  <p>{{item.message}}</p>		    	
+	  </div>
+	  <div *ngIf = "item.userId != userId" class="otherUser">
+		  <a routerLink= "/profile/{{item.userId}}">{{item.name}}</a>		   
+		  <p>{{item.message}}</p>	  	  	
+	  </div>
+	</div>	
+  </div>
+
+
+  <div class="bottomChat">
+  	 <textarea type="text" id="message" placeholder="Chat here..." [(ngModel)]="msgVal" #text>  	 	
+  	 </textarea>
+  	 <button (click)="chatSend(text.value)" class="sendBtn saveBtn">SEND</button>
+  </div>
+</div>
+

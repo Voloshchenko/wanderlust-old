@@ -1,0 +1,32 @@
+<div class="modal-header">
+  	<h5 class="modal-title pull-left">FRIENDS MANAGER</h5>  
+    <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">  	
+      <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+	<div class="row">        
+        <label>ADD NEW TRIP MEMBER</label>
+        <input class="form-control" type="text" (keydown)="search($event)" placeholder="Invite friends">
+        <ul *ngIf='output' class="output">
+          <li *ngFor='let user of users'>
+            <a routerLink= "/profile/{{user.$key}}">{{user?.name}}</a>
+            <button type="button" (click)='inviteFriendsToTrip(user.$key, user.name)'>Add</button>
+          </li>
+        </ul>	     
+	</div>
+
+    <label>TRIP MEMBERS</label>
+	<div class="addedUsers" *ngFor='let member of members as members; index as i '>      
+      <a routerLink= "/profile/{{member.userId}}">{{member.userName}}</a>
+      <img (click) = "removeFriend(i)" src="assets/img/reusable/remove.svg" class="pull-right"> 
+    </div>
+	<div class="addedUsers" *ngFor='let member of newMembers as members; index as i '>      
+      <a routerLink= "/profile/{{member.userId}}">{{member.userName}}</a>
+      <img (click) = "removeNewFriend(i)" src="assets/img/reusable/remove.svg" class="pull-right"> 
+    </div>     
+    <hr> 
+    <button type="submit" (click)="addFriends()" class="saveBtn pull-right">Save</button>    
+    <button class="cancelBtn pull-right" (click)="bsModalRef.hide()">Cancel</button>    
+</div>
+

@@ -1,0 +1,103 @@
+<div class="modal-header">
+  	<h5 class="modal-title pull-left">ADD YOUR NEW TRIP</h5>  
+    <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">  	
+      <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body" (click)='hideOutput()'>
+  <form [formGroup]="newTripForm" (ngSubmit)="saveNewTrip()" novalidate>
+	<div class="row">
+	  <div class="col-md-6">
+		<label>NAME OF YOUR TRIP*</label>
+	    <input id='myElement2' class="form-control" type="text" formControlName="tripName">
+      <div class="alert" *ngIf="!newTripForm.controls['tripName'].valid && newTripForm.controls['tripName'].touched">Add your trip name</div>
+	  </div>
+    <div class="col-md-6">
+      <label>TRIP DATES*</label>
+      <my-date-range-picker name="mydaterange"
+      (dateRangeChanged)="onDateRangeChanged($event)"
+      [options]="myDateRangePickerOptions" 
+         formControlName="range" required></my-date-range-picker>
+      <div class="alert alert-danger" role="alert" *ngIf="!newTripForm.controls['range'].valid && newTripForm.controls['range'].touched" >
+        Add your trip dates
+      </div>         
+    </div>        
+	</div>
+    <div *ngIf = "cities.controls.length != 0" formArrayName="cities">
+      <div *ngFor="let city of cities.controls; let i=index" [formGroupName]="i" >
+      <!-- The repeated address template -->
+        <div class="row">
+      	  <div class="col-md-6">
+            <div class="form-group">
+              <label>CITY*</label>
+              <input placeholder="search for location" 
+              id="city{{i}}" 
+              autocorrect="off" 
+              autocapitalize="off" 
+              spellcheck="off" type="text" 
+              formControlName="cityName"
+              (focus)="initializeSearch(i)"
+              (blur)="searchCity(i)" class="form-control" >
+            </div>      	  	
+      	  </div>
+      	  <div class="col-md-6">
+            <div class="form-group" *ngIf="cityNames[i] != undefined" >
+              <label >{{"DATES* in " + cityNames[i].cityName}}</label>
+              <my-date-range-picker name="mydaterange" [options]="myDateRangePickerOptions" [defaultMonth]="defaultMonth"
+                     formControlName="range" required></my-date-range-picker>
+            </div>      	  	
+          </div>
+          <img class="remove" (click)='remove(i)' src="assets/img/reusable/remove.svg">      
+        </div>        
+        <!-- <div class="row">
+        	<div class="col-md-12">        
+        	  <div class="form-group">
+            	<label>INVITE TO THE WHOLE TRIP</label>
+              <input class="form-control" type="text" (keydown)="search($event)" placeholder="Invite friends">
+              <ul *ngIf='output' class="output">
+                <li *ngFor='let user of users'>
+                  <a routerLink= "/profile/{{user.userId}}">{{user?.name}}</a>
+                  <button type="button" (click)='inviteFriendsToCity(user.userId, user.name, i)'>Add</button>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div> -->         
+      </div>
+      <!-- End of the repeated address template -->     
+    </div>
+    <button (click)="addCity()" class="addCity" type="button">Add City</button>
+    <div class="row">
+      <div class="col-md-7">        
+        <label>INVITE TO THE WHOLE TRIP</label>
+        <input class="form-control" type="text" (keydown)="search($event)" placeholder="Invite friends">
+        <ul *ngIf='output' class="output">
+          <li *ngFor='let user of users'>
+            <a routerLink= "/profile/{{user.$key}}">{{user?.name}}</a>
+            <button type="button" (click)='inviteFriendsToTrip(user.$key, user.name)'>Add</button>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-5">
+        <label>TRIP CURRENCY </label>    
+        <input class="form-control" formControlName="currency" list="currency">
+        <datalist id="currency">
+          <option value="RUB">
+          <option value="USD">
+          <option value="EURO">
+          <option value="AUD"> 
+          <option value="GBP">  
+        </datalist> 
+      </div> 
+    </div>
+    <div class="addedUsers" *ngFor='let member of members as members; index as i '>      
+      <p>{{member.userName}}</p>
+      <img (click) = "removeFriend(i)" src="assets/img/reusable/remove.svg"> 
+    </div>
+    <div class="rigth-oriented"> 
+      <button class="cancelBtn" (click)="bsModalRef.hide()">Cancel</button>       
+      <button type="submit" class="saveBtn" [disabled]='!newTripForm.valid'>Save</button> &nbsp;
+    </div> 
+  </form>
+</div>
+

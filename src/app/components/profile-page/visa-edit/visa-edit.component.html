@@ -1,0 +1,58 @@
+<div class="modal-header">
+  <h5 class="modal-title pull-left">VISAS AND DOCUMENTS</h5>
+  <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">    
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+   <form (ngSubmit)="editVisa()" [formGroup]="visaForm" novalidate>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="float-lable">
+          <label>DOCUMENT NAME*</label>
+            <select formControlName="type" class="form-control" 
+            [(ngModel)]="type">
+              <option value="PASSPORT">PASSPORT</option>
+              <option value="VISA">VISA</option>
+            </select> 
+        </div>
+      </div>
+      <div class="col-md-6">
+      <label>NUMBER/IDENTIFICATION</label>
+      <input [(ngModel)]="number" type="text" formControlName="number" class="form-control" >  
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="float-lable">
+          <label>COUNTRY/PLACE OF ISSUE*</label>
+          <input [(ngModel)]="issuedIn" type="text" formControlName="issuedIn" class="form-control" >   
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="float-lable">
+          <label>DATE OF ISSUE*</label>
+              <my-date-picker 
+                [(ngModel)]="issued"
+                [options]="myDatePickerOptions"
+                formControlName="issued">
+              </my-date-picker>  
+        </div>
+      </div>
+      <div class="col-md-6">
+       <label>DATE OF EXPIERY*</label>
+            <my-date-picker 
+              [(ngModel)]="expires"
+              [options]="myDatePickerOptions"
+              formControlName="expires">
+            </my-date-picker> 
+      </div>
+    </div>
+    <div class="rigth-oriented"> 
+      <button class="cancelBtn" (click)="bsModalRef.hide()">Cancel</button>      
+      <button type="submit" class="saveBtn" >Save</button>
+    </div>  
+  </form>
+</div> 

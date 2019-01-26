@@ -1,0 +1,24 @@
+<div class="userLogin">
+  <form (submit)="signUpWithEmail($event)"> 
+    <div class="icons">
+      <img class="userImg" src="assets/img/login/user.png">
+      <input type="text" placeholder="Your Full name.."  class="txt" required>      
+    </div>       
+    <hr>
+    <div class="icons">
+      <img class="envelopeImg" src="assets/img/login/envelope.png">
+      <input type="text" placeholder="Email address.."  class="txt" required>       
+    </div>    	
+
+    <hr>
+    <div class="icons">
+      <img class="lockImg" src="assets/img/login/lock.png">
+      <input type="password" placeholder="Password" class="txt" required>      
+    </div>
+    <div class="loginBtnBlock">
+      <button type="submit">CREATE MY ACCOUNT</button>
+      <button  class="forSmallScreen" type="button" (click)='manipulate.loginToggle()'>LOGIN</button>       
+      <input type="checkbox"> <p>Remember me</p>        
+    </div>           
+  </form>
+</div>

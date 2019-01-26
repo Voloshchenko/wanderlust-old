@@ -1,0 +1,38 @@
+<div class="modal-header">	
+  <h4 class="modal-title pull-left">EDIT YOUR CITY</h4>
+  <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">  	
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form (ngSubmit)="saveCity()" [formGroup]="editCityForm" novalidate>
+    <div class="row">
+  	  <div class="col-md-6">
+    		<div class="float-lable">
+    		  <label>Name</label>
+    		  <input placeholder="search for location" 
+                  id="city" 
+                  autocorrect="off" 
+                  autocapitalize="off" 
+                  spellcheck="off" type="text" 
+                  formControlName="cityName"
+                  [(ngModel)]='cityName'
+                  (focus)="initializeSearch()"
+                  (blur)="searchCity()" class="form-control" >	
+    		</div>
+  	  </div>
+  	  <div class="col-md-6">
+        <label>Dates of your city visit</label>
+          <my-date-range-picker name="mydaterange" 
+          formControlName="range"       
+          [options]="myDateRangePickerOptions" 
+        [(ngModel)] = 'range' required>
+          </my-date-range-picker> 
+  	  </div>
+	  </div>
+    <div class="rigth-oriented"> 
+      <button class="cancelBtn" (click)="bsModalRef.hide()">Cancel</button>      
+      <button type="submit" class="saveBtn" [disabled]='!editCityForm.valid'>Save</button>
+    </div>     
+  </form>
+</div> 

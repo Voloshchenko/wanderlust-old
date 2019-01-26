@@ -1,0 +1,31 @@
+.toDoBlock {
+  border-radius: 5px;
+  box-shadow: -1px 8px 20px 1px #cec9c9;
+  padding-bottom: 5px;
+  padding: 10px;
+}
+
+.toDoList {
+  overflow-y: scroll;
+  height: 85px; 
+}
+
+
+.lines {
+  padding: 5px 10px;
+  width: 100%;
+}
+
+p {
+  display: inline-block;
+  margin: 0;
+}
+.upcoming{
+  border-bottom-style: solid;
+  border-bottom-width: 1px; 
+}
+
+input{
+  margin-top: 10px;
+}
+

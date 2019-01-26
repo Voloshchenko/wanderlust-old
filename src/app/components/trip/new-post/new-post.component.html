@@ -1,0 +1,27 @@
+<div class="modal-header">
+  	<h5 class="modal-title pull-left">NEW POST</h5>  
+    <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">  	
+      <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+  <form [formGroup]="newPostForm" (ngSubmit)="saveNewPost()" novalidate>
+	<div class="row">
+	  <div class="col-md-6">
+		<label>POST TITLE</label>
+	    <input formControlName="postTitle" class="form-control" type="text">
+	  </div>       
+	</div>
+    <div class="row">
+      <div class="col-md-12">        
+        <label>POST*</label>
+        <textarea rows="10" class="form-control" formControlName="postBody"></textarea> 
+      </div>
+    </div>
+    <div class="rigth-oriented"> 
+      <button class="cancelBtn" (click)="bsModalRef.hide()">Cancel</button>       
+      <button type="submit" class="saveBtn" [disabled]='!newPostForm.valid'>Save</button> &nbsp;
+    </div>   
+  </form> 
+</div>
+

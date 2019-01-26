@@ -1,0 +1,94 @@
+#background {
+	background: url('../../../assets/img/profile/background.jpg') no-repeat fixed center center;	
+	background-size: inherit;
+	min-height: 100vh;
+}
+
+.forSmallScreen {
+  display: none;
+}
+
+.sidebar {	
+	background-color: rgba(255, 255, 255, 0.5);
+	min-height: 100vh;
+	position: absolute;
+    right: 0;
+}
+
+.pendingTrips {
+	margin-top: 30px;
+	background-color: #5f1a5f;
+	color: white;
+	padding: 5px;
+}
+
+.pasttrips {
+	background-color: rgb(108, 202, 232);
+    padding: 5px;
+    color: white;
+}
+
+ul {
+	list-style-type: none;
+	 -webkit-padding-start:0;
+}
+
+.upcomingTrips{
+	display: inline-block;
+	text-align: center;
+	padding: 0 10px;
+	vertical-align: text-top;
+}
+
+a {
+	color: black;
+}
+a:focus, a:hover {
+    text-decoration: none;
+}
+p {
+	display: inline-block;
+}
+
+.sidebar p {
+	margin: 5px 0 0 5px;
+}
+
+@media only screen and (max-width : 992px) {  
+.col-xs-12 {
+	padding-left: 5px;
+}
+.upcomingTrips{
+	display: block;
+	text-align: left;
+	margin-top: 20px;
+	margin-right: 10px;
+}
+.upcomingTrips a{
+	background-color: rgb(108, 202, 232);
+	padding: 10px 20px;
+	color: white;
+	border-radius: 10px;
+	display: inline-block;
+	width: 65%;
+    margin-right: 10px;
+}
+
+.upcomingTrips p{
+    vertical-align: middle;
+    margin-bottom: 0;	
+}
+
+
+	.sidebar {			
+		background-color: rgba(255, 255, 255, 0.5);
+		min-height: 0;
+		position: absolute;
+	    width: 100%;		
+	    bottom: 0;
+
+	}
+.forSmallScreen {
+  display: inline-block;
+}
+}

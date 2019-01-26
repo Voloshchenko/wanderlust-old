@@ -1,0 +1,111 @@
+.headChat {
+	background-color: blue;
+	color: white;
+}
+
+.chat-block {
+	width:100%;
+  background-color: white;
+  box-shadow: 1px 7px 12px rgba(0,0,0,.175); 
+  border-right: solid;
+  border-left: solid;
+  border-width: 1px;
+  border-color: #e0e0e0; 
+}
+
+input#message {
+    background:none;
+    border:none;
+    border-bottom: 1px solid #4C4C4C;
+    outline:none;
+    box-shadow:none;
+    color: #282828;
+    font-size: 15px;
+    font-weight:300;
+    margin-bottom: 30px;
+    padding: 10px;
+}
+
+.chat-container {
+    display:block;
+    width:100%;
+    height: 250px;
+    width: 100%;
+    overflow-y:auto;
+    background-color: #f1f1f1;
+}
+
+
+.chat-container::-webkit-scrollbar {
+    width: 11px;
+}
+ 
+.chat-container::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+ 
+.chat-container::-webkit-scrollbar-thumb {
+      background: #a4d7e7;
+    box-shadow: -1px 0px 12px rgba(0,0,0,.175);
+  outline: 1px solid slategrey;
+}
+
+.chat-container p{
+  padding: 10px;
+  background: white;
+  box-shadow: -1px 0px 12px rgba(0,0,0,.175);
+  margin: 5px 0 15px 0;
+  width: 180px;
+  border-radius: 15px;   	
+}
+
+.currentUser{
+    margin-left: 117px;
+}
+
+.currentUser p{
+	background:#a4d7e7;
+}
+
+.otherUser {
+  margin-left: 6px;
+}
+
+.otherUser p{
+  background:#f8f8f8;	
+}
+
+
+.chat-container a {
+    text-transform: uppercase;
+    font-weight:bold;
+    color:#282828;
+    font-size:.8em;
+    letter-spacing:2px;
+    margin-left: 9px;
+}
+
+.bottomChat {
+  background-color: #e4e4e4;
+  padding: 15px 10px;
+}
+
+.bottomChat textarea{
+  border-radius: 6px;
+  line-height: 15px;
+  width: 220px;
+}
+
+.sendBtn {
+  vertical-align: top;
+  background-color: #50b5d6; 
+  margin-top: 2px;
+}
+
+.search {
+  height: 250px;
+}
+
+textarea {
+    overflow: hidden !important;
+}

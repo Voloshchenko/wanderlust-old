@@ -1,0 +1,55 @@
+<div id="forSmallScreen">
+  <a id="menu" (click)="openMenu()"><img src="assets/img/navBar/menu.png"></a>
+  <a class="navbar-brand" routerLink="/user" >WANDERLUST</a>	
+</div>
+
+
+<nav id="drawer" [class.open]="menuOpen" class="navbar navbar-inverse" role="navigation">
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <div class="container" id="containerSmall">
+      <ul class="nav navbar-nav">
+      	<li  routerLink="/user" class="notForSmallScreen" routerLinkActive='active'>
+		  <a class="navbar-brand">WANDERLUST</a>
+		</li>
+		<li class="forSmallScreen">
+		  
+	      <a routerLink= "/profile/{{userId}}" class="blue-background">
+             
+	      	<p><img src="assets/img/navBar/user.png">{{ userName }} </p></a>
+	    </li>
+		<li class="dropdown" dropdown>
+		  <a dropdownToggle class="dropdown-toggle blue-background" data-toggle="dropdown"><p>Trips <b class="caret"></b></p></a>
+		  <ul *dropdownMenu class="dropdown-menu">
+		    <li [ngClass]="
+         {'evens': i % 2 == 0, 
+          'odds': i % 2 != 0}" *ngFor="let trip of trips; index as i " routerLink= "/trip/{{trip.$key}}">
+		    	   <a>{{trip.tripName}}<br>
+		    	   	  {{trip.range.beginJsDate | date: 'dd.MM.yyyy'}}-{{trip.range.endJsDate| date: 'dd.MM.yyyy'}}
+		    	   </a>
+		    </li>
+		    <li class="tripManager">
+		      <a routerLink='/tripManager' routerLinkActive='active'>TRIP MANAGER</a>		      
+		    </li>
+		    <li class="newTrip">
+   		      <a (click)='manipulate.newTrip()'><img src="assets/img/navBar/add.png">ADD NEW TRIP</a>
+			</li>
+		  </ul>
+		</li>
+	  </ul>
+	  <ul class="nav navbar-nav navbar-right">	  	
+	  	<li><a routerLink='/newsfeed'><img src="assets/img/navBar/newsfeed.png">Newsfeed</a></li>
+	  	<li><a routerLink='/groups'><img src="assets/img/navBar/groups.png">Groups</a></li>
+	  	<li><a routerLink= "/friends/{{userId}}"><img class="friends" src="assets/img/navBar/friends.png">Friends</a></li>
+	  	<li><a routerLink='/messages'><img src="assets/img/navBar/messages.png">Messages</a></li>
+	    <li class="notForSmallScreen">
+	      <a routerLink= "/profile/{{userId}}" class="blue-background"><p>{{ userName }} </p></a>
+	    </li>
+		<li>
+		  <a (click)="logout()"><img src="assets/img/navBar/logout.png">Logout</a>
+		</li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+

@@ -1,0 +1,37 @@
+<div *ngFor="let tripDetail of tripFunction.tripDetails as tripDetails; index as i " class="inline">
+<img class="home" *ngIf="i==0" src="assets/img/trip/homeOpen.png">   	
+  <div class="addBlock inline text-center">
+	<div  class="arrow-right forBigScreen"
+	  (click)='modalSupport.addTransport(tripId, i)'
+	  (click)='manipulate.addTransport()'> 
+	  <img src="assets/img/trip/tickets.png" class="tickets">		  
+	    <span class="tooltiptext">Add transport</span>
+	</div>  
+	<div  class="arrow-right forSmallScreen"
+	  (click)='modalSupport.addTransport(tripId, i)'
+	  (click)='manipulate.addTransport()'> 
+	  <img src="assets/img/trip/ticketsmobile.png" class="tickets">		  
+	    <span class="tooltiptext">Add transport</span>
+	</div> 
+
+  </div>
+  <transport class='block inline'
+  *ngIf='tripDetail.type =="transport"' [transportId]='tripDetail.$key' [tripId]='tripId' [index]='i'></transport>
+  <city class='block inline'
+   *ngIf='tripDetail.type=="city"' [tripDetailId]='tripDetail.$key' [tripId]='tripId' [index]='i'></city>
+  <div *ngIf="i==tripDetails.length-1" class="addBlock inline text-center">
+	<div class="arrow-right forBigScreen"
+	  (click)='modalSupport.addTransport(tripId, "last")'
+	  (click)='manipulate.addTransport()'> 
+	  <img src="assets/img/trip/tickets.png" class="tickets">	  
+        <span class="tooltiptext">Add transport</span>
+	</div> 
+	<div class="arrow-right  forSmallScreen"
+	  (click)='modalSupport.addTransport(tripId, "last")'
+	  (click)='manipulate.addTransport()'> 
+	  <img src="assets/img/trip/ticketsmobile.png" class="tickets">	  
+        <span class="tooltiptext">Add transport</span>
+	</div> 	 
+  </div>
+</div>
+<img class="last" src="assets/img/trip/homeClose.png">

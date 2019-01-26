@@ -1,0 +1,184 @@
+<div class="modal-header">
+  <h5 class="modal-title pull-left">EDIT YOUR TRANSPORT</h5>
+  <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">  	
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="transportInput">
+   <form (ngSubmit)="saveTransport()" [formGroup]="editTransportForm" novalidate>
+    <div class="radioInput row">
+      <div class="col-xs-1 col-sm-1 col-md-1"></div>
+      <div class="col-xs-2 col-sm-2 col-md-2">
+        <div class="transportLabels" [ngClass]="
+         {'planeActive': (editTransportForm.controls['typeOfTransport'].value== 'plane'), 
+          'gray': (editTransportForm.controls['typeOfTransport'].value!= 'plane')}">
+          <img class = "planeImg" src="assets/img/transport/planeWhite.png">         
+        </div>
+        <input type="radio" value="plane" [(ngModel)] = 'typeOfTransport' formControlName="typeOfTransport" >
+      </div>
+      <div class="col-xs-2 col-sm-2 col-md-2">
+        <div class="transportLabels" [ngClass]="
+         {'trainActive': (editTransportForm.controls['typeOfTransport'].value== 'train'), 
+          'gray': (editTransportForm.controls['typeOfTransport'].value!= 'train')}">
+          <img class = "trainImg" src="assets/img/transport/train.png">         
+        </div>
+        <input type="radio" value="train" [(ngModel)] = 'typeOfTransport' formControlName="typeOfTransport" >
+      </div>
+      <div class="col-xs-2 col-sm-2 col-md-2">
+        <div class="transportLabels" [ngClass]="
+         {'busActive': (editTransportForm.controls['typeOfTransport'].value== 'bus'), 
+          'gray': (editTransportForm.controls['typeOfTransport'].value!= 'bus')}">
+          <img class = "busImg" src="assets/img/transport/bus.png">         
+        </div>
+        <input type="radio" value="bus" [(ngModel)] = 'typeOfTransport' formControlName="typeOfTransport" >
+      </div>
+      <div class="col-xs-2 col-sm-2 col-md-2">
+        <div class="transportLabels" [ngClass]="
+         {'shipActive': (editTransportForm.controls['typeOfTransport'].value== 'ship'), 
+          'gray': (editTransportForm.controls['typeOfTransport'].value!= 'ship')}">
+          <img class = "shipImg" src="assets/img/transport/boat.png">         
+        </div>
+        <input type="radio" value="ship" [(ngModel)] = 'typeOfTransport' formControlName="typeOfTransport" >
+      </div>
+      <div class="col-xs-2 col-sm-2 col-md-2">
+        <div class="transportLabels" [ngClass]="
+         {'carActive': (editTransportForm.controls['typeOfTransport'].value== 'car'), 
+          'gray': (editTransportForm.controls['typeOfTransport'].value!= 'car')}">
+          <img class = "carImg" src="assets/img/transport/carWhite.png">         
+        </div>
+        <input type="radio" value="car" [(ngModel)] = 'typeOfTransport' formControlName="typeOfTransport" >
+      </div>
+      <div class="col-xs-1 col-sm-1 col-md-1"></div>           
+    </div>
+    <div class="row">
+      <div class="col-xs-6 col-sm-6 col-md-6">  
+        <label *ngIf="editTransportForm.controls['typeOfTransport'].value=='plane'|| editTransportForm.controls['typeOfTransport'].value=='bus'|| editTransportForm.controls['typeOfTransport'].value=='train'">CARRIER</label>
+        <label *ngIf="editTransportForm.controls['typeOfTransport'].value=='ship'|| editTransportForm.controls['typeOfTransport'].value=='car'">COMPANY</label>
+        <input class="form-control" type="text" [(ngModel)] = 'carrier' formControlName="carrier">
+      </div>
+      <div class="col-xs-6 col-sm-6 col-md-6">  
+        <label *ngIf="editTransportForm.controls['typeOfTransport'].value=='plane'">FLIGHT №</label>
+        <label *ngIf="editTransportForm.controls['typeOfTransport'].value=='ship'">BOAT NAME</label>
+        <label *ngIf="editTransportForm.controls['typeOfTransport'].value=='car'">LICENSE №</label>
+        <label *ngIf="editTransportForm.controls['typeOfTransport'].value=='bus'">BUS №</label>
+        <label *ngIf="editTransportForm.controls['typeOfTransport'].value=='train'">TRAIN №</label>
+        <input class="form-control" type="text" [(ngModel)] = 'flight' formControlName="flight" >
+      </div>
+    </div> 
+    <div class="trChangeBlock" [ngClass]="
+         {'plane': (editTransportForm.controls['typeOfTransport'].value=='plane'), 
+          'train': (editTransportForm.controls['typeOfTransport'].value== 'train'), 
+          'bus': (editTransportForm.controls['typeOfTransport'].value=='bus'), 
+          'ship': (editTransportForm.controls['typeOfTransport'].value== 'ship'), 
+          'car': (editTransportForm.controls['typeOfTransport'].value== 'car')}">     
+      <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6">
+          <p>DEPARTURE INFO</p>
+          <label class="label">CITY* </label>
+          <input placeholder="search for location" 
+                  id="fromCity" 
+                  autocorrect="off" 
+                  autocapitalize="off" 
+                  spellcheck="off" type="text" 
+                  formControlName="fromCity"
+                  [(ngModel)]='fromCity'
+                  (focus)="initializeSearch()"
+                  (blur)="search()" class="form-control" >
+          <div class="alert" *ngIf="!editTransportForm.controls['fromCity'].valid && editTransportForm.controls['fromCity'].touched">Add from what city</div>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6">
+          <p>ARRIVAL INFO</p>
+          <label class="label">CITY*</label>
+                  <input placeholder="search for location" 
+                  id="toCity" 
+                  autocorrect="off" 
+                  autocapitalize="off" 
+                  spellcheck="off" type="text" 
+                  formControlName="toCity"
+                  [(ngModel)]='toCity'
+                  (focus)="initializeSearch()"
+                  (blur)="search()" class="form-control" >
+          <div class="alert" *ngIf="!editTransportForm.controls['toCity'].valid && editTransportForm.controls['toCity'].touched">Add from what city</div>        
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6">
+          <label class="label" *ngIf="editTransportForm.controls['typeOfTransport'].value=='plane'">AIRPORT</label>
+          <label class="label" *ngIf="editTransportForm.controls['typeOfTransport'].value=='bus' || editTransportForm.controls['typeOfTransport'].value=='train'">STATION</label>
+          <label class="label" *ngIf="editTransportForm.controls['typeOfTransport'].value=='ship'">PORT</label>
+          <label class="label" *ngIf="editTransportForm.controls['typeOfTransport'].value=='car'">PICK-UP</label>
+          <input placeholder="search for location" 
+                  id="fromPort" 
+                  autocorrect="off" 
+                  autocapitalize="off" 
+                  spellcheck="off" type="text" 
+                  formControlName="fromPort"
+                  [(ngModel)]='fromPort'
+                  (focus)="initializeSearch()"
+                  (blur)="search()" class="form-control" >
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6">
+          <label class="label" *ngIf="editTransportForm.controls['typeOfTransport'].value=='plane'">AIRPORT</label>
+          <label class="label" *ngIf="editTransportForm.controls['typeOfTransport'].value=='bus' || editTransportForm.controls['typeOfTransport'].value=='train'">STATION</label>
+          <label class="label" *ngIf="editTransportForm.controls['typeOfTransport'].value=='ship'">PORT</label>
+          <label class="label" *ngIf="editTransportForm.controls['typeOfTransport'].value=='car'">DROP-OFF</label>
+          <input placeholder="search for location" 
+                  id="toPort" 
+                  autocorrect="off" 
+                  autocapitalize="off" 
+                  spellcheck="off" type="text" 
+                  formControlName="toPort"
+                  [(ngModel)]='toPort'
+                  (focus)="initializeSearch()"
+                  (blur)="search()" class="form-control" >
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6">
+          <label class="label">DATE AND TIME*</label>
+          <my-date-picker 
+            [(ngModel)] = 'starts'
+            [options]="myDatePickerOptions"
+            formControlName="starts">
+          </my-date-picker> 
+          <div class="alert" *ngIf="!editTransportForm.controls['starts'].valid && editTransportForm.controls['starts'].touched">Date of departure</div>
+          <input class="form-control timeForm" type="time" 
+           [(ngModel)] = 'startsTime' formControlName="startsTime">
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6">
+          <label class="label">DATE AND TIME*</label>
+          <my-date-picker
+            [(ngModel)] = 'ends'
+            [options]="myDatePickerOptionsRight"
+            formControlName="ends">
+          </my-date-picker>
+          <div class="alert" *ngIf="!editTransportForm.controls['ends'].valid && editTransportForm.controls['ends'].touched">Date of arrival</div>   
+          <input class="form-control timeForm" type="time" 
+           [(ngModel)] = 'endsTime' formControlName="endsTime">
+        </div>
+      </div>
+    </div>
+    <div class="row bottom">
+      <div class="col-xs-5 col-sm-5 col-md-4">
+        <label>COST</label>
+        <input class="form-control" type="number" [(ngModel)] = 'cost' formControlName="cost">
+      </div>
+      <div class="col-xs-7 col-sm-7 col-md-4">
+        <div class="checkbox">
+          <div class="col-xs-6 col-sm-6 col-md-6">
+            <input class="form-control" type="checkbox" [(ngModel)] = 'booked' formControlName="booked">
+            <label class="label">Booked</label>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-6">
+            <input class="form-control" type="checkbox" [(ngModel)] = 'paid' formControlName="paid">
+            <label class="label">Paid</label>
+          </div>
+        </div>       
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-4">
+        <button type="submit" class="saveBtn transportSaveBtn pull-right">Save</button>
+        <button type="button" class="cancelBtn transportSaveBtn pull-right" (click)="bsModalRef.hide()">Cancel</button> 
+      </div>       
+    </div>
+  </form>
+</div> 

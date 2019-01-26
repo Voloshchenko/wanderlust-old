@@ -1,0 +1,30 @@
+.budget {
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  box-shadow: -1px 8px 20px 1px #cec9c9;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  background-color: #f8f8f8;
+}
+
+.lines {
+  margin: 10px;
+  padding: 5px 10px;
+}
+
+p {
+  display: inline-block;
+  margin: 0;
+}
+.upcoming{
+  background-color:#f4bcbc;  
+}
+
+.paid{
+  background-color:#c7dac9;  
+}
+
+.total {
+  background-color:#d5d5d5;  
+  font-weight: bold;
+}

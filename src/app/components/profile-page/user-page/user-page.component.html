@@ -1,0 +1,156 @@
+<div class="background">
+<navbar></navbar>
+<div class="container">
+      <div class="name forSmallScreen">
+        <h4>{{userProfile?.name.toUpperCase()}}</h4>
+      </div>
+  <div class="row">
+  	<div class="col-xs-12 col-sm-12 col-md-3">
+      <div class="topForm" *ngIf='ownProfile && editPhotoActive'>
+        <p>add URL</p>
+       <input type="text"
+       (keyup.enter)="uploadPhot($event.target.value)">  
+      </div>   
+      <div class="img" [style.background-image]="userProfile?.imgUrl ? 
+     'url('+userProfile?.imgUrl+')' : 'none'">
+        <img class='edit' *ngIf='ownProfile' (click)="editPhoto()" src="assets/img/reusable/edit.png">
+        <img *ngIf="!userProfile?.imgUrl" class="user" src="assets/img/reusable/user.svg">   
+        <h5 *ngIf="!userProfile?.imgUrl">UPLOAD</h5>
+        <p *ngIf="!userProfile?.imgUrl">profile photo</p>    
+      </div> 		
+<div class="text-center">
+      <button (click)='addFriend()' class="addCity addFriend" *ngIf='stranger'>
+          Add friend
+      </button>  
+      <button (click)='addFriend()' class="addCity addFriend" *ngIf='pending'>
+          request sent
+      </button> 
+      <button (click)='addFriend()' class="addCity addFriend" *ngIf='friend'>
+          Unfriend
+      </button> 
+</div>      
+                      
+  	  <div class="friends">
+        <div class="header">
+            <h5>FRIENDS</h5> 
+        </div> 
+        <div class="friends-body"> 
+          <div *ngFor="let friend of this.friendsList.friends" (click)="friendRouting(friend.$key)">
+              <friends [friendId]="friend.$key"></friends>       
+          </div>
+          <a class="text-center allFriends" 
+          (click)="friends()">View all</a>
+        </div>        
+	    </div>		
+	  </div>
+  	<div class="col-xs-12 col-sm-12 col-md-9">
+      <div class="name forBigScreen">
+        <h4>{{userProfile?.name.toUpperCase()}}</h4>
+      </div>
+      <div class="longBlock">        
+        <div class="header">
+          <h5>PERSONAL INFO</h5>
+          <img class='pull-right persEdit' *ngIf='ownProfile && !manipulate.editPInfo' src="assets/img/reusable/edit.png" (click)='manipulate.togglepersonalnfo()'> 
+        </div>
+        <div *ngIf="!manipulate.editPInfo" class="infoBody"> 
+          <div class="row">         
+        	  <div class="col-md-6">
+              <p *ngIf="userProfile?.birthday">
+                <span>BIRTHDAY:</span>
+                {{userProfile?.birthday.formatted}}
+              </p>
+        	    <p *ngIf="userProfile?.homeCity">
+                <span>HOME CITY:</span>
+                {{userProfile?.homeCity}}
+              </p>  	    
+        	    <p *ngIf="userProfile?.languages">
+                <span>LANGUAGES:</span>
+                {{userProfile?.languages}}
+              </p>
+        	    <p *ngIf="userProfile?.work">
+                <span>WORK:</span>
+                {{userProfile?.work}}
+              </p>
+              <p *ngIf="userProfile?.status">
+                <span>STATUS:</span>
+                {{userProfile?.status}}
+              </p>
+        	  </div>        
+            <div class="col-md-6">
+              <p>SOCIAL & CONTACT:</p>
+              <a *ngIf="userProfile?.instagram" href={{userProfile?.instagram}}>
+                <img class="social" src="assets/img/reusable/insta.png">
+              </a>
+              <a *ngIf="userProfile?.facebook" href={{userProfile?.facebook}}>
+                <img class="social" src="assets/img/reusable/facebook.png">
+              </a>
+              <a *ngIf="userProfile?.twitter" href={{userProfile?.twitter}}>
+                <img class="social" src="assets/img/reusable/twitter.png">
+              </a>
+              <p *ngIf="userProfile?.email">
+                <span>E-MAIL:</span>
+                {{userProfile?.email}}
+              </p>
+              <p *ngIf="userProfile?.phone">
+                <span>PHONE NUMBER:</span>
+                {{userProfile?.phone}}
+              </p>  
+            </div>
+          </div> 
+          <div class="row">         
+            <div class="col-md-6">
+              <h6>ABOUT YOU:</h6>
+              <p *ngIf="!userProfile?.about">{{userProfile?.name}} didn't write about herself yet</p>
+            </div>        
+            <div class="col-md-6">
+              <h6>PUBLISHED STORIES:</h6>
+              <p *ngIf="!userProfile?.stories">{{userProfile?.name}} doesn't have any pusblished stories</p>              
+            </div>
+          </div> 
+        </div> 
+        <div *ngIf="manipulate.editPInfo" class="infoBody"> 
+          <peronal-information></peronal-information>
+        </div> 
+      </div> 
+      <div class="longBlock" *ngIf='ownProfile'>        
+        <div class="header">
+          <h5>VISAS AND DOCUMENTS</h5>
+        </div>
+        <div class="infoBody">
+          <div *ngFor="let item of personalInfo" class="visa">
+            <img class='pull-right visaEdit'
+            src="assets/img/reusable/edit.png"
+            (click)='modalSupport.editVisa(currentUserId, item.$key)'
+            (click)='manipulate.editVisa()'>
+            <span>{{item.issuedIn}} {{item.type}}</span>
+            <p>EXPIRES ON {{item.expires.jsdate | date:'d.MM.y'}}</p>
+          </div>
+
+          <p *ngIf="personalInfo == []">You didn't add visa</p> 
+          <hr>
+          <button class="cancelBtn addDocumentBtn" 
+          (click)='modalSupport.addVisa(currentUserId)'
+          (click)='manipulate.addVisa()'>
+             ADD DOCUMENTS
+          </button>
+        </div> 
+      </div>
+      <div class="longBlock" *ngIf="this.afAuth.currentUserId == 'iw268kanJaRBMV36tYz2gFOjSnq2' || this.afAuth.currentUserId == 'zGrBh9Vb50hYOe3QycVS9GV4rQ83'">        
+        <div class="header">
+          <h5>POSTS</h5>
+        </div>
+        <div class="infoBody">
+          <div *ngFor="let trip of tripPosts">
+            <div *ngIf="trip.length != 0">
+              <div *ngFor="let post of trip">
+                <h5>{{post.title}}</h5>
+                <p>{{post.body}}</p>
+              </div>
+            </div>
+          </div>
+        </div> 
+      </div>
+  	</div>
+  </div>	
+</div>
+</div>

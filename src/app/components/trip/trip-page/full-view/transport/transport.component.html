@@ -1,0 +1,95 @@
+<div class="transportComponent">
+  <div class="title"> 
+    <div>
+      <h5 *ngIf="typeOfTransport=='plane'">
+        FLIGHT {{flight}}
+      </h5>
+      <h5 *ngIf="typeOfTransport=='train'">
+        TRAIN № {{flight}}
+      </h5>
+      <h5 *ngIf="typeOfTransport=='bus'">
+        BUS № {{flight}}
+      </h5>
+      <h5 *ngIf="typeOfTransport=='ship'">
+        BOAT NAME  {{flight}}
+      </h5>
+      <h5 *ngIf="typeOfTransport=='car'">
+        LICENSE № {{flight}}
+      </h5>
+      <p *ngIf="typeOfTransport=='plane' 
+      || typeOfTransport=='bus' 
+      || typeOfTransport=='train'">
+        CARRIER: {{carrier}}
+      </p>
+      <p *ngIf="typeOfTransport=='car' 
+      || typeOfTransport=='ship'">
+        COMPANY: {{carrier}}
+      </p>      
+    </div>
+  </div>
+  <div class="main" [ngClass]="
+         {'plane': typeOfTransport=='plane', 
+          'train': typeOfTransport== 'train', 
+          'bus': typeOfTransport=='bus', 
+          'ship': typeOfTransport== 'ship', 
+          'car': typeOfTransport== 'car'}">
+    <div class="row">
+      <div class="col-xs-6 col-sm-6 col-md-6">
+        <h5>DEPARTURE</h5>
+        <h3>{{starts| date:'hh:mm a'}}</h3>
+        <p>{{starts| date:'d MMMM y'}}</p>  
+      </div>
+      <div class="col-xs-6 col-sm-6 col-md-6">
+        <h5>ARRIVAL</h5>
+        <h3>{{ends| date:'hh:mm a'}}</h3>        
+        <p>{{ends| date:'d MMMM y'}}</p>          
+      </div>      
+    </div>
+    <div class="row">
+      <div class="col-xs-6 col-sm-6 col-md-6">
+        <h5>FROM:</h5>
+        <h4>{{fromPort.toUpperCase().split(',', 1)}}</h4>
+        <p>{{fromCity.split(',', 1)}} </p>  
+      </div>
+      <div class="col-xs-6 col-sm-6 col-md-6">
+        <h5>TO:</h5>
+        <h4>{{toPort.toUpperCase().split(',', 1)}}</h4>
+        <p> {{toCity.split(',', 1)}}</p>          
+      </div>      
+    </div>
+  </div> 
+  <div class="bottom">      
+     <p *ngIf='booked'>Booked</p>
+    <p *ngIf='!booked'>Need to book</p>      
+   <p *ngIf='paid'>Paid {{cost}} {{currency}}</p>
+    <p *ngIf='!paid'>Need to pay: {{cost}} {{currency}}</p>
+    <img src="assets/img/reusable/delete.png" class="pull-right" 
+    (click)="showModal()">
+    <img src="assets/img/reusable/edit.png" class="pull-right" (click) = 'modalSupport.editTransport(transportId, index, tripId)' 
+     (click)='manipulate.editTransport()'>  
+  </div> 
+  <div class="addNote">
+    <a (click)='modalSupport.showNotes(tripId, transportId)'
+      (click)='manipulate.showNotes()'>YOUR NOTES</a>
+  </div>       
+</div>
+
+
+<!-- Delete modal view -->
+<div class="modal fade" bsModal #modal="bs-modal" role="dialog">   
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title pull-left">DELETE</h5>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modal.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h5>Do you want to delete transport from {{fromCity}} to {{toCity}} </h5>
+        <button (click)="delete()" (click)="modal.hide()">Delete</button>
+        <button (click)="modal.hide()">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>

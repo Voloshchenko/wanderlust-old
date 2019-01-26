@@ -1,0 +1,63 @@
+<div id='background'>
+  <navbar></navbar>
+  <div class="container">
+	<div class="row">
+	  <div class="col-xs-12 col-sm-12 col-md-9">
+	   	<h3>UPCOMING TRIPS</h3>	  	
+	  	<div *ngFor="let trip of upcomingTrips" class="upcomingTrips">
+	      <a routerLink= "/trip/{{trip.$key}}">{{trip.tripName.toUpperCase()}}<br></a>
+		  <p class="forBigScreen">
+		  {{trip.range.beginJsDate | date: 'dd.MM.yyyy'}}-{{trip.range.endJsDate| date: 'dd.MM.yyyy'}}</p>	
+		  <p class="forSmallScreen">	{{trip.range.beginJsDate | date: 'dd.MM.yyyy'}}<br>{{trip.range.endJsDate| date: 'dd.MM.yyyy'}}</p>
+         <p class="forSmallScreen">{{trip.members[0]}}</p>
+         <trip-members [members]="trip.members"></trip-members>
+		</div>
+	  </div>
+	  <div class="col-md-3 sidebar">
+	  	<h5 class="pendingTrips">PENDING TRIP INVITATIONS</h5>
+	  	<ul *ngIf="pendingTrips.length != 0">
+	  	  <li *ngFor="let trip of pendingTrips">
+			<a (click)="pendTripInfo(trip.$key)">{{trip.tripName}}</a>
+			<p>
+			{{trip.range.beginJsDate | date: 'dd.MM.yyyy'}}-{{trip.range.endJsDate| date: 'dd.MM.yyyy'}}</p>
+			<trip-members [members]="trip.members"></trip-members>			
+		  </li>
+		  <hr>
+        </ul>
+        <p *ngIf="pendingTrips.length == 0"> None</p>
+	   	<h5 class="pasttrips">PAST TRIPS</h5>
+	   	<ul *ngIf="pastTrips.length != 0"> 
+	  	  <li *ngFor="let trip of pastTrips">
+			<a routerLink= "/trip/{{trip.$key}}">{{trip.tripName}}</a>
+			<p>	{{trip.range.beginJsDate | date: 'dd.MM.yyyy'}}-{{trip.range.endJsDate| date: 'dd.MM.yyyy'}}</p>
+			<hr>
+		  </li>
+		</ul>
+		<p *ngIf="pastTrips.length == 0"> None</p>  	   		
+	  </div>   	 
+	</div>
+  </div>
+</div>
+    
+<!-- Delete modal view -->
+<div class="modal fade" bsModal #modal="bs-modal" role="dialog">   
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title pull-left">DELETE</h5>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modal.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      	<div *ngFor="let tripDetail of tripFunction.tripDetails">
+      	  <p *ngIf = "tripDetail.type == 'city'">{{tripDetail.cityName}}: {{tripDetail.range.beginJsDate | date: 'dd.MM.yyyy'}}-{{tripDetail.range.endJsDate| date: 'dd.MM.yyyy'}}</p> 
+          <p *ngIf = "tripDetail.type == 'transport'">{{tripDetail.fromCity}} - {{tripDetail.toCity}}</p>
+          <input type="checkbox" name="vehicle" value="Bike">
+        </div>
+        <button (click)='accept(pendTripId)' (click)="modal.hide()">Join</button>
+        <button (click)='decline(pendTripId)' (click)="modal.hide()">Refuse</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,53 @@
+<div class="accommodationComponent">
+  <div class="title"> 
+    <h5 class="text-left">{{hotelName}}</h5>
+    <p class="text-left">HOTEL/HOSTEL </p>      
+  </div>
+  <div class="main">
+    <p>ADDRESS</p>
+    <h5 class="text-left">{{hotelAddress}}</h5>
+    <p class="map" (click) = 'modalSupport.mapAccom(latitude, longitude)' (click)='manipulate.mapAccom()'>SHOW ON MAP</p> 
+    <hr>
+    <div class="row">
+       <div class="col-xs-6 col-sm-6 col-md-6">
+          <p>CHECK IN FROM:</p>
+          <h4>{{checkIn| date:'hh:mm a'}}</h4>        
+          <p>{{starts| date:'d MMMM y'}}</p>          
+       </div>
+       <div class="col-xs-6 col-sm-6 col-md-6">
+          <p>CHECK OUT TILL:</p>
+          <h4>{{checkOut| date:'hh:mm a'}}</h4>        
+          <p>{{ends| date:'d MMMM y'}}</p>         
+       </div>       
+    </div>      
+  </div> 
+  <div class="bottom">
+    <p *ngIf='booked'>Booked</p>
+    <p *ngIf='!booked'>Need to book</p>      
+    <p *ngIf='paid'>Paid {{cost}} {{currency}}</p>
+    <p *ngIf='!paid'>Need to pay: {{cost}} {{currency}}</p>          
+    <img src="assets/img/reusable/delete.png" class="pull-right" 
+    (click)="showModal()">
+    <img src="assets/img/reusable/edit.png" class="pull-right" (click) = 'modalSupport.editAccommodation(accommodationId, tripDetailId, tripId)' 
+     (click)='manipulate.editAccommodation()'>  
+  </div>        
+</div>
+
+<!-- Delete accommodation -->
+<div class="modal fade" bsModal #modal="bs-modal" role="dialog">  
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title pull-left">DELETE</h5>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modal.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h5>Do you want to delete accommodation {{hotelName}}</h5>
+        <button (click)='delete()'>Delete </button>
+        <button (click)="modal.hide()">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>

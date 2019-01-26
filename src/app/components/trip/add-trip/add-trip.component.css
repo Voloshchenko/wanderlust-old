@@ -1,0 +1,36 @@
+button{
+	margin-top: 20px;	
+}
+
+
+.remove {
+	width: 20px;
+    position: absolute;
+    right: 25px;
+    cursor: pointer;
+}
+
+.modal-body {
+	padding-bottom: 60px
+}
+
+.addedUsers {
+	display: inline-block;
+	background-color: #81ab86;
+	color: white; 
+	padding: 5px;
+    margin: 10px 10px 0 0;
+    border-radius: 5px;    
+}
+
+.addedUsers p {
+	margin: 0;
+	display: inline-block;
+}
+
+.addedUsers img {
+    width: 20px;
+    cursor: pointer;
+}
+
+

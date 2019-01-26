@@ -1,0 +1,35 @@
+<div class="modal-header">
+  <h5 class="modal-title pull-left">ADD YOUR NEW CITY</h5>
+  <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">  	
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+   <form (ngSubmit)="saveNewCity()" [formGroup]="newCityForm" novalidate>
+    <div class="row">
+	  <div class="col-md-6">
+		<div class="float-lable">
+		  <label>Name</label>
+		  <input placeholder="search for location" 
+              id="city" 
+              autocorrect="off" 
+              autocapitalize="off" 
+              spellcheck="off" type="text" 
+              formControlName="cityName"
+              (focus)="initializeSearch()"
+              (blur)="searchCity()" class="form-control" >	 
+		</div>
+	  </div>
+	  <div class="col-md-6">
+		 <label>Dates of your accomodation</label>
+         <my-date-range-picker name="mydaterange" [options]="myDateRangePickerOptions" [defaultMonth]="defaultMonth"
+                     formControlName="range" required>
+        </my-date-range-picker>	
+	  </div>
+	</div>
+    <div class="rigth-oriented"> 
+      <button class="cancelBtn" (click)="bsModalRef.hide()">Cancel</button>      
+      <button type="submit" class="saveBtn" [disabled]='!newCityForm.valid'>Save</button>
+    </div>	
+  </form>
+</div> 

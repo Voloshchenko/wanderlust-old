@@ -1,0 +1,219 @@
+
+.container{
+  margin-top: 30px;
+}
+
+.img {
+	background-color: #282828;
+	color: white;
+	text-align: center;
+	height: 250px; 
+	width: 250px;
+	border-radius: 15px;
+	position: relative;
+	background-position: center;
+  background-size: cover;
+  box-shadow:0px 1px 13px 0px rgba(66, 66, 66, 0.28);   
+  margin-bottom: 20px;   
+}
+
+
+.user {
+	width: 140px;
+    margin: 20px;
+}
+
+
+.img h5{
+    font-size: 20px;
+    font-size: 20px;
+    margin: 0;
+    cursor: pointer;    
+}
+
+.edit {
+    width: 15px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+}
+.img input{
+  color: black;
+}
+
+.friends {
+  background-color: white;
+  box-shadow:0px 1px 13px 0px rgba(66, 66, 66, 0.28);
+  width: 250px;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.friends-body div {
+  display: inline-block;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.friends-body input {
+  display: block;
+}
+
+
+.topForm {
+  background-color: white;
+  width: 250px;	
+  border-radius: 15px;
+  box-shadow:0px 1px 13px 0px rgba(66, 66, 66, 0.28);  
+  padding: 5px;
+}
+
+.topForm p{
+  margin: 0;
+  display: inline-block;
+}
+.topForm input{
+    line-height: 10px;
+}
+
+.longBlock {
+  background-color: white;
+  border-radius: 15px;
+  box-shadow:0px 1px 13px 0px rgba(66, 66, 66, 0.28);  
+  margin-bottom: 20px;
+}
+
+
+
+.longBlock p span {
+    font-weight: bold;
+    margin: 0;
+    font-size: 12px;
+}
+
+.longBlock p {
+    margin: 0;
+}
+
+.longBlock img {
+    width: 15px;
+    margin: 8px;
+}
+
+.addFriend {
+  width: 200px;
+  margin: 0 25px !important;
+}
+
+.social {
+  width: 35px !important;
+  margin: 10px !important;
+}
+
+.infoBody {
+  padding: 20px;
+}
+
+.visa {
+  display: inline-block;
+  padding: 15px;  
+}
+
+.visa span{
+  font-weight: bold;  
+}
+
+hr {
+    margin: 0;
+    border-top: 1.3px solid #a2a1a1;
+}
+
+.addDocumentBtn {
+    background-color: #282828;
+    border-radius: 50px;
+}
+
+.addDocumentBtn:hover{
+    background-color: #d4d4d4;
+    color: #282828;
+}
+
+.longBlock .pull-right {
+    margin: 0;
+    cursor: pointer;
+}
+
+a:focus, a:hover {
+  text-decoration: none;
+}
+
+h6 {
+  color: rgb(80, 181, 214);
+  font-weight: bold;
+}
+
+.name img {
+  width: 15px;
+  margin-bottom: 25px;
+}
+
+.name h4 {
+  display: inline-block;
+  font-size: 28px;
+  margin: 0; 
+  margin-bottom: 10px;
+}
+
+.name input {
+    margin-top: 30px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    font-weight: bold;   
+}
+
+.allFriends {
+  display: block;
+}
+
+.persEdit {
+  margin: 7px 10px !important;
+}
+
+.addCity {
+    margin: 0;
+  }
+
+
+.visaEdit {
+    width: 11px !important;
+    margin: 2px !important;
+}
+
+  @media screen and (max-width: 767px) {
+
+  .img {
+      width: 100%;
+      background-position: top;
+  }
+  .name h4 {
+      font-size: 23px;
+      margin-bottom: 13px;
+      margin-top:30px;
+  }  
+
+  .name {  
+    text-align: center;
+  } 
+.friends {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.addFriend {
+    width: 200px;
+    font-size: 18px;
+}
+
+  }
